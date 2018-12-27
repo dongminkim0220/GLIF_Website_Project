@@ -1,4 +1,5 @@
-source myvenv/bin/activate <to activate.> 
+source myvenv/Script/activate
+<to activate.> 
 
 (myvenv) ~$ python3 -m pip install --upgrade pip
 
