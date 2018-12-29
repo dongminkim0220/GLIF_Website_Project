@@ -4,8 +4,11 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'glifpage/index.html', {})
 
-def introduction(request):
-    return render(request, 'glifpage/introduction.html', {})
+def aboutUs(request):
+    if request.META['PATH_INFO'] == '/aboutus/introduction' :
+        return render(request, 'glifpage/aboutUs/introduction.html', {})
+    elif request.META['PATH_INFO'] == '/aboutus/glifers' :
+        return render(request, 'glifpage/aboutUs/glifers.html', {})
 
 def announcement(request):
     return render(request, 'glifpage/announcement.html', {})
