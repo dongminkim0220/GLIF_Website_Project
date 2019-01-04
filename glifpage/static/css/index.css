@@ -12,6 +12,10 @@ a {
     color: white;
 }
 
+a:hover {
+    color: white;
+}
+
 .list-group-item.active {
     z-index: 2;
     color: #fff;
