@@ -11,7 +11,7 @@ def aboutUs(request):
         return render(request, 'glifpage/aboutUs/glifers.html', {})
 
 def announcement(request):
-    return render(request, 'glifpage/announcement.html', {})
+    return render(request, 'glifpage/announcement/announcement.html', {})
 
 def daily(request):
     if request.META['PATH_INFO'] == '/daily/overview' :
@@ -22,10 +22,13 @@ def daily(request):
         return render(request, 'glifpage/daily/market.html', {})
 
 def inDepthAnalysis(request):
-    return render(request, 'glifpage/inDepthAnalysis.html', {})
+    return render(request, 'glifpage/inDepthAnalysis/inDepthAnalysis.html', {})
 
 def recruiting(request):
-    return render(request, 'glifpage/recruiting.html', {})
+    if request.META['PATH_INFO'] == '/recruiting' :
+        return render(request, 'glifpage/recruiting/recruiting.html', {})
+    elif request.META['PATH_INFO'] == '/recruiting/new' :
+        return render(request, 'glifpage/recruiting/new.html', {})
 
 def gliferOnly(request):
     if request.META['PATH_INFO'] == '/gliferonly/review' :

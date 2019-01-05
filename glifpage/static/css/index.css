@@ -1,6 +1,5 @@
-/* navbar links */
-.navbar-dark .navbar-nav .nav-link {
-    color: white;
+.main-picture {
+    max-height: 50%;
 }
 
 .container {
@@ -23,9 +22,9 @@ a:hover {
     border-color: #343a40!important;
 }
 
-.carousel-item {
+.carousel-inner {
     width: 100%;
-    height: 100%;
+    height: 10%;
     object-fit: cover;
 }
 
