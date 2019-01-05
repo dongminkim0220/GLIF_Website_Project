@@ -1,19 +1,51 @@
     <div class="card-footer bg-dark text-muted">
-        <div>
-            <p>Contact Us</p>
-            <li>e-mail: glif@pseudo.email</li>
-            <li>phone: 010-pseudo-phone </li>
-            <li>SNS: www.facebook.pseudopage </li>
-        </div>
-        <div>
-            <p>Page Developers</p>
-            <p>&copy; 2018 4th GLIFER, dongmin kim<p>
-
-        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#" data-toggle="modal" data-target="#contactus">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#devcopy">Developers & Copyright</a>
+            </li>
+        </ul>
     </div>
     
+    <div class="modal fade" id="contactus" tabindex="-1" role="dialog" aria-labelledby="contactusLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="contactusLabel">Contact Us</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <p> email: ehdals56@naver.com </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
 
-    
+    <div class="modal fade" id="devcopy" tabindex="-1" role="dialog" aria-labelledby="devcopyLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="devcopyLabel">Developers & Copyright</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <p>© 2018 - 2019 4th GLIFER, dongmin kim</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>    
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

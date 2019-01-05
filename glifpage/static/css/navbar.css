@@ -1,4 +1,21 @@
 /* navbar links */
+.logo-img {
+    width: 30%;
+    height: 15%;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
 .navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
     color: white;
 }

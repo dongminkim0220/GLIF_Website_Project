@@ -2,18 +2,12 @@
     max-height: 50%;
 }
 
+
 .container {
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
-a {
-    color: white;
-}
-
-a:hover {
-    color: white;
-}
 
 .list-group-item.active {
     z-index: 2;

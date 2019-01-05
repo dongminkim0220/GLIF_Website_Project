@@ -16,10 +16,14 @@ def announcement(request):
 def daily(request):
     if request.META['PATH_INFO'] == '/daily/overview' :
         return render(request, 'glifpage/daily/overview.html', {})
-    elif request.META['PATH_INFO'] == '/daily/news' :
-        return render(request, 'glifpage/daily/news.html', {})
+    elif request.META['PATH_INFO'] == '/daily/newsclipping' :
+        return render(request, 'glifpage/daily/clip/clip.html', {})
+    elif request.META['PATH_INFO'] == '/daily/newsclipping/new' :
+        return render(request, 'glifpage/daily/clip/new.html', {})
     elif request.META['PATH_INFO'] == '/daily/market' :
-        return render(request, 'glifpage/daily/market.html', {})
+        return render(request, 'glifpage/daily/market/market.html', {})
+    elif request.META['PATH_INFO'] == '/daily/market/new' :
+        return render(request, 'glifpage/daily/market/new.html', {})
 
 def inDepthAnalysis(request):
     return render(request, 'glifpage/inDepthAnalysis/inDepthAnalysis.html', {})
