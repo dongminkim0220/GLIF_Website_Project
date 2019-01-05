@@ -19,3 +19,8 @@ a {
 a:hover {
     color: white;
 }
+
+.authentification {
+    padding-right: 10px ;
+    padding-left: 10px;
+}
