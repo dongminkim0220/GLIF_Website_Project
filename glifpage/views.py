@@ -4,6 +4,12 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'glifpage/index.html', {})
 
+def login(request):
+    return render(request, 'glifpage/login.html', {})
+
+def signup(request):
+    return render(request, 'glifpage/signup.html', {})
+
 def aboutUs(request):
     if request.META['PATH_INFO'] == '/aboutus/introduction' :
         return render(request, 'glifpage/aboutUs/introduction.html', {})
