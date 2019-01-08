@@ -6,14 +6,16 @@ Dev Log
 1. navbar redesign V
 2. logo css adjust V
 
-20190108
-3. responsive design - 1024 px
-4. sign up form - mongod lab refer. 
+20190108 
 5. navbar onclick - color change V
 6. about us/ intro h1 redesign V
-7. announcement table media query
-8. Announcement pagination center/ 글쓰기 중앙정렬 V
-9. indepth pagination center/ 글쓰기 중앙정렬 V
-10. daily / news 버튼 링크 중앙정렬
+7. announcement table media query V
+8. Announcement pagination center/ center alignment V
+9. indepth pagination center/ center alignment V
+10. daily / news button link center alignment V
+
+
+3. responsive design - 1024 px
+4. sign up form - mongod lab refer.
 11. recruiting intro center
 12. recruiting
