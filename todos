@@ -1,5 +1,5 @@
 Dev Log
-
+--------------------------------------------------------
 [frontend]
 
 20190107
@@ -19,6 +19,19 @@ Dev Log
 4. sign up form - mongod lab refer. V
 14. login page refactor V
 3. responsive design - 1024 px V
-
 15. overview - investing.com
 <front-todo: 15 tasks>
+
+---------------------------------------------------------
+
+---------------------------------------------------------
+[backend]
+
+20190110
+1. requirements- package management demo V
+
+
+2. routing demo
+3. model demo
+
+<backend-todo: 3 tasks>
