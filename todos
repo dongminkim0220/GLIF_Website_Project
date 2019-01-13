@@ -19,7 +19,7 @@ Dev Log
 4. sign up form - mongod lab refer. V
 14. login page refactor V
 3. responsive design - 1024 px V
-15. overview - investing.com
+15. overview - investing.com V
 <front-todo: 15 tasks>
 
 ---------------------------------------------------------
@@ -29,9 +29,23 @@ Dev Log
 
 20190110
 1. requirements- package management demo V
+2. routing demo V
+3. model demo V
+5. myvenv name > virtualenv V
+7. django version update V
+4. mysite project name > website change V
 
 
-2. routing demo
-3. model demo
+6. refactoring : by changing the routing
 
-<backend-todo: 3 tasks>
+Authentication
+User Model Setup - with image file handling
+id/ pw/ krname/ enname/ birthdate/ gender/ email/ phone number /nth/ self-intro /picture 
+Login, Logout, GLIFER ONLY
+
+Announcement
+Daily - news
+Daily - Market
+indepth
+recruiting
+<backend-todo: 7 tasks>
