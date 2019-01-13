@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GLIF</title>
+
+        {% load staticfiles %}
+        <!-- css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'setups/css/signup.css' %}">        
+
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="{% static 'setups/favicons/Oxygen-Icons.org-Oxygen-Actions-rating.ico' %}">
+    </head>
+
+    <body>
+        <div class="main">
+            <section class="signup">
+                <div class="container">
+                    <div class="signup-content">
+                        <form method="POST" id="signup-form" class="signup-form">
+                            <h1> Sign Up </h1>
+
+                            <!-- auths -->
+                            <span class= "signup-section"><i class="fas fa-lock signup-section-icon"></i>Authentification</span>
+                            <div class="form-group">
+                                <label for="id">ID</label>
+                                <input type="id" class="form-input" name="id" id="id" />
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-input" name="password" id="password"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="re_password">Repeat your password</label>
+                                    <input type="password" class="form-input" name="re_password" id="re_password"/>
+                                </div>
+                            </div>
+
+                            <!-- personal -->
+                            <span class= "signup-section"><i class="fas fa-user signup-section-icon"></i>Personal Informations</span>
+                            <!-- name -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">이름</label>
+                                    <input type="text" class="form-input" name="kr_name" id="kr_name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">영문이름</label>
+                                    <input type="text" class="form-input" name="en_name" id="en_name" />
+                                </div>
+                            </div>
+
+                            <!-- birthday, gender -->
+                            <div class="form-row">
+                                <div class="form-group form-icon">
+                                    <label for="birth_date">Birth date</label>
+                                    <input type="date" class="form-input" name="birth_date" id="birth_date" placeholder="MM-DD-YYYY" />
+                                </div>
+                                <div class="form-radio">
+                                    <label for="gender">Gender</label>
+                                    <div class="form-flex">
+                                        <input type="radio" name="gender" value="male" id="male" checked="checked" />
+                                        <label for="male">Male</label>
+                                        <input type="radio" name="gender" value="female" id="female" />
+                                        <label for="female">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-input" name="email" id="email" />
+                            </div>
+
+                            
+                            <!-- specifics -->
+                            <span class= "signup-section"><i class="fas fa-university signup-section-icon"></i>Specifics</span>
+
+                            <div class="form-group">
+                                <label for="nth">기수</label>
+                                <input type="text" class="form-input" name="nth" id="nth" placeholder= "OB or n기" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="img-uploaded">사진</label>
+                                <input type="image" class="form-input" name="img-uploaded" id="img-uploaded"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="stu-id-with-work">학번 및 직장</label>
+                                <input type="text" class="form-input" name="stu-id-with-work" id="stu-id-with-work" placeholder="14학번 or 14학번/[근무지]근무"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="intro-input">소개 섹션에 들어갈 자기소개</label>
+                                <input type="textarea" class="form-input" name="intro-input" id="intro-input" />
+                            </div>
+                                
+
+                            <div class="form-group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+                    
+    </body> <!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+
+
+

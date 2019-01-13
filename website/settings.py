@@ -37,7 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'glifpage',
+    'setups',
+    'aboutus_introduction',
+    'aboutus_glifers',
+    'announcement',
+    'daily_market',
+    'daily_news',
+    'daily_overview',
+    'indepthanalysis',
+    'recruiting',
 ]
 
 MIDDLEWARE = [

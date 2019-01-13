@@ -1,0 +1,113 @@
+{% extends 'setups/base.html' %}
+
+{% block body %}
+<div class = "container">
+    <div class = "row">
+        <!-- sidebar -->
+        <div class = "col-md-3">
+            <p class = "lead">Daily</p>
+            <div class = "list-group">
+                <li class = "list-group-item list-group-item-dark"> <a href="/daily/overview">Overview</a> </li>
+                <li class = "list-group-item list-group-item-dark active"> <a href="/daily/newsclipping">Daily News Clipping</a></li>
+                <li class = "list-group-item list-group-item-dark"> <a href="/daily/market">Daily Market Analysis</a></li>
+            </div>
+        </div>
+
+        <!-- contents -->
+        <div class = "col-md-9">
+            <p class = "lead">Daily News Clipping</p>
+    
+            <!-- tables -->
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">NO</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">첨부파일</th>
+                        <th scope="col">등록일</th>
+                        <th scope="col">작성자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <!-- pagination -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class = "row align-items-center justify-content-center">
+                <button type="button" class="btn btn-outline-dark"> <a class = "dailybtn" href="/daily/newsclipping/new">Add Daily</a>  </button>
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#schedule">
+                        Check Schedule
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="schedule" tabindex="-1" role="dialog" aria-labelledby="scheduleLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleLabel">Schedules</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">날짜</th>
+                                    <th scope="col">WSJ</th>
+                                    <th scope="col">FT</th>
+                                    <th scope="col">BB</th>
+                                    <th scope="col">Market</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

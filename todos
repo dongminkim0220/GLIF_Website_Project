@@ -34,9 +34,7 @@ Dev Log
 5. myvenv name > virtualenv V
 7. django version update V
 4. mysite project name > website change V
-
-
-6. refactoring : by changing the routing
+6. refactoring : by making multiple apps V
 
 Authentication
 User Model Setup - with image file handling

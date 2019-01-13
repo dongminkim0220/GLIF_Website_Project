@@ -1,0 +1,40 @@
+@media (max-width: 1058px) {
+    
+    .nav-link {
+        font-size: 13px;
+    }
+}
+
+/* general */
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+/* logo */
+.logo-img {
+    width: 100px;
+}
+
+
+/* link clicks */
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a.dropdown-item:active {
+    background-color: #343a40!important;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+/* auths */
+.authentification {
+    padding-right: 0.2em;
+    padding-left: 0.2em;
+}

@@ -1,0 +1,330 @@
+{% extends 'setups/base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <img src="../../../../static/images/gliflinklogo.png" alt="" srcset="">
+    <form action="" method="post">
+        <h1>Daily Market Update</h1>
+        <input class="form-control" id="date" name="date" type="date" />
+        <p>* All rates are as of the end of previous business day, and % change is DoD</p>
+        <div class="row">
+            <div class="col">
+                <p>Daily Dataset</p>
+
+                <!-- exr -->
+                <div class = "form-group">
+                    <h6>Currency Exchange Rates</h6>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">FX</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">EUR-USD</th>
+                                <td>
+                                    <input class="form-control" id="e/u_cl" name="e/u_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="e/u_ch" name="e/u_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">USD-KRW</th>
+                                <td>
+                                    <input class="form-control" id="u/k_cl" name="u/k_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="u/k_ch" name="u/k_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>    
+                </div>
+
+                <!-- bdrates -->
+                <div class = "form-group">
+                    <h6>Rates and Bonds</h6>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">United States</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">Federal Reserve Target Rate</th>
+                                <td>
+                                    <input class="form-control" id="fed_cl" name="fed_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="fed_ch" name="fed_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">2-10 Year Spread</th>
+                                <td>
+                                    <input class="form-control" id="spread_cl" name="spread_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="spread_ch" name="spread_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">2-Year T-Notes</th>
+                                <td>
+                                    <input class="form-control" id="usyr2_cl" name="usyr2_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="usyr2_ch" name="usyr2_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">10-Year T-bonds</th>
+                                <td>
+                                    <input class="form-control" id="usyr10_cl" name="usyr10_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="usyr10_ch" name="usyr10_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>    
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">South Korea</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">BoK Interest Rate</th>
+                                <td>
+                                    <input class="form-control" id="bok_cl" name="bok_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="bok_ch" name="bok_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">KTB 3-Year</th>
+                                <td>
+                                    <input class="form-control" id="kryr3_cl" name="kryr3_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="kryr3_ch" name="kryr3_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">KTB 10-Year</th>
+                                <td>
+                                    <input class="form-control" id="kryr10_cl" name="kryr10_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="kryr10_ch" name="kryr10_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>   
+                </div>
+
+                <!-- stk -->
+                <div class = "form-group">
+                    <h6>Stock Indices</h6>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">US</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">Dow Jones</th>
+                                <td>
+                                    <input class="form-control" id="dj_cl" name="dj_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="dj_ch" name="dj_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">S&P 500</th>
+                                <td>
+                                    <input class="form-control" id="sp_cl" name="sp_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="sp_ch" name="sp_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">NASDAQ</th>
+                                <td>
+                                    <input class="form-control" id="nas_cl" name="nas_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="nas_ch" name="nas_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">South Korea</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">KOSPI</th>
+                                <td>
+                                    <input class="form-control" id="ksp_cl" name="ksp_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="ksp_ch" name="ksp_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">KOSDAQ</th>
+                                <td>
+                                    <input class="form-control" id="ksd_cl" name="ksd_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="ksd_ch" name="ksd_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">Japan</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">NIKKEI 225</th>
+                                <td>
+                                    <input class="form-control" id="nik_cl" name="nik_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="nik_ch" name="nik_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">HONGKONG</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">Hang Seng</th>
+                                <td>
+                                    <input class="form-control" id="hk_cl" name="hk_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="hk_ch" name="hk_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                
+                </div>
+
+                <!-- comm -->
+                <div class = "form-group">
+                    <h6>Commodities</h6>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">Energy</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">Brent Crude Oil</th>
+                                <td>
+                                    <input class="form-control" id="bco_cl" name="bco_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="bco_ch" name="bco_ch" type="number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope = "row">WTI</th>
+                                <td>
+                                    <input class="form-control" id="wti_cl" name="wti_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="wti_ch" name="wti_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">Metal</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">Gold</th>
+                                <td>
+                                    <input class="form-control" id="gd_cl" name="gd_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="gd_ch" name="gd_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead class = "thead-light">
+                            <th scope="col">Index</th>
+                            <th scope="col">Closing</th>
+                            <th scope="col">Change</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">BDI</th>
+                                <td>
+                                    <input class="form-control" id="bdi_cl" name="bdi_cl" type="number"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" id="bdi_ch" name="bdi_ch" type="number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>    
+                </div>
+            </div>
+
+            <div class="col">
+                <p>Daily Market Recap</p>
+                <div class = "form-group">
+                    <h6>Americas</h6>
+                    <button class = "btn btn-dark">Add Recaps</button>
+                </div>
+                <div class = "form-group">
+                    <h6>EMEA</h6>
+                    <button class = "btn btn-dark">Add Recaps</button>
+                </div>
+                <div class = "form-group">
+                    <h6>APAC</h6>
+                    <button class = "btn btn-dark">Add Recaps</button>
+                </div>
+                <div class = "form-group">
+                    <h6>Americas</h6>
+                    <button class = "btn btn-dark">Add Recaps</button>
+                </div>
+            </div>
+        </div>    
+    </form>
+    
+</div>
+
+{% endblock %}
