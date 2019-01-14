@@ -42,3 +42,7 @@ a.dropdown-item:active {
 .authentification.greeting {
     color: white;
 }
+
+a.auth-link {
+    color: gold;
+}

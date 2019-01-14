@@ -91,12 +91,12 @@
                 <li class = "authentification greeting">
                     Hello, {{ user.name_en }}! 
                 </li>
-                <li class = "authentification"> <a href="{% url 'logout' %}">Logout</a> </li>
+                <li class = "authentification"> <a class = "auth-link" href="{% url 'logout' %}">Logout</a> </li>
             </ul>
         {% else %}
             <ul class="nav navbar-nav navbar-right">
-                <li class = "authentification"> <a href="{% url 'login' %}">Login</a> </li>
-                <li class = "authentification"> <a href="{% url 'signup' %}">Sign up</a> </li>
+                <li class = "authentification"> <a class = "auth-link" href="{% url 'login' %}">Login</a> </li>
+                <li class = "authentification"> <a class = "auth-link" href="{% url 'signup' %}">Sign up</a> </li>
             </ul>
         {% endif %}
 

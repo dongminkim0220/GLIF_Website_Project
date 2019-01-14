@@ -37,10 +37,11 @@ Dev Log
 6. refactoring : by making multiple apps V
 
 Authentication
-8. User Model Setup - with image file handling
+8. User Model Setup - with image file handling V
 id/ pw/ krname/ enname/ birthdate/ gender/ email/ phone number /nth/ self-intro /picture 
 Login, Logout, GLIFER ONLY
 
+9. aboutus - glifers update
 Announcement
 Daily - news
 Daily - Market
