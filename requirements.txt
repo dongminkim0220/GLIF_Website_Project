@@ -1,2 +1,5 @@
 Django==2.1.5
+freeze==1.0.10
+Pillow==5.4.1
 pytz==2018.7
+six==1.12.0

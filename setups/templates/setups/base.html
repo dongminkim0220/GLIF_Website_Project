@@ -23,6 +23,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'setups/css/daily.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'setups/css/recruit.css' %}">
 
+    {% block css %}
+    <!-- Additional CSS Goes HERE -->
+    {% endblock %}
+
 
     <!-- font awesome: icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -82,18 +86,19 @@
             </li>
         </ul>
 
-        <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-text">
-                Hello, glifer1234. 
-            </span>
-        </nav>
-
-        
-        <ul class="nav navbar-nav navbar-right">
-            <li class = "authentification"> <a href="#" data-toggle="modal" data-target="#logoutModal">Logout</a> </li>
-            <li class = "authentification"> <a href="/login">Login</a> </li>
-            <li class = "authentification"> <a href="/signup">Sign up</a> </li>
-        </ul>
+        {% if user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class = "authentification greeting">
+                    Hello, {{ user.name_en }}! 
+                </li>
+                <li class = "authentification"> <a href="{% url 'logout' %}">Logout</a> </li>
+            </ul>
+        {% else %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class = "authentification"> <a href="{% url 'login' %}">Login</a> </li>
+                <li class = "authentification"> <a href="{% url 'signup' %}">Sign up</a> </li>
+            </ul>
+        {% endif %}
 
         </div>
     </nav>

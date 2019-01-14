@@ -1,0 +1,29 @@
+{% extends 'setups/base.html' %}
+
+{% block css %}
+
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+<link rel="stylesheet" type="text/css" href="{% static 'setups/css/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'setups/css/navbar.css' %}">
+
+{% endblock %}
+
+{% block body %}
+
+<!-- slides -->
+                
+<div id="landing-header">
+        <h1>Welcome to GLIF!</h1>
+        <h2>Global Leaders In Finance</h2>
+    </div>
+
+    <ul class="slideshow">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+{% endblock %}

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'setups',
+
+    # website applications
     'aboutus_introduction',
     'aboutus_glifers',
     'announcement',
@@ -46,6 +47,10 @@ INSTALLED_APPS = [
     'daily_overview',
     'indepthanalysis',
     'recruiting',
+
+    # backend setups : Auth, global properties
+    'setups',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +68,8 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,12 +114,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# User Model customization
+AUTH_USER_MODEL = 'users.CustomUser'
+
+# Redirect URLs
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'ko'
-#for English, 'en-us'
+LANGUAGE_CODE = 'en-us'
+#for korean, 'ko'
 TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
@@ -128,3 +140,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

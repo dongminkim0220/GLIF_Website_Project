@@ -38,3 +38,7 @@ a.dropdown-item:active {
     padding-right: 0.2em;
     padding-left: 0.2em;
 }
+
+.authentification.greeting {
+    color: white;
+}
