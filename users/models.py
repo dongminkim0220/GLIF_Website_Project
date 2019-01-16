@@ -34,5 +34,3 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.name_kr
     
-    # def get_absolute_url(self):
-    #     return reverse('registration:login', kwargs={'pk': self.pk})

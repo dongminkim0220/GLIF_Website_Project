@@ -8,7 +8,7 @@
             <p class = "lead">ABOUT US</p>
             <div class = "list-group">
                 <li class = "list-group-item list-group-item-dark"> <a href="/aboutus/introduction">Introduction</a> </li>
-                <li class = "list-group-item list-group-item-dark active"> <a href="/aboutus/glifers">GLIFERs</a></li>
+                <li class = "list-group-item list-group-item-dark active"> <a href="/aboutus/glifers/OB">GLIFERs</a></li>
             </div>
         </div>
         <!-- contents -->
@@ -16,28 +16,35 @@
             <!-- mini nav-bar -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">OB</a></li>
-                    <li class="breadcrumb-item"><a href="#">1기</a></li>
-                    <li class="breadcrumb-item"><a href="#">2기</a></li>
-                    <li class="breadcrumb-item"><a href="#">3기</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">4기</li>
+                    <li class="breadcrumb-item"><a href="/aboutus/glifers/OB">OB</a></li>
+                    <li class="breadcrumb-item"><a href="/aboutus/glifers/1기">1기</a></li>
+                    <li class="breadcrumb-item"><a href="/aboutus/glifers/2기">2기</a></li>
+                    <li class="breadcrumb-item"><a href="/aboutus/glifers/3기">3기</a></li>
+                    <li class="breadcrumb-item"><a href="/aboutus/glifers/4기">4기</a></li>
                 </ol>
             </nav>
 
             <ul class="list-unstyled">
-                <li class="media">
-                    {% load staticfiles %}
-                    <img src="{% static 'setups/images/dongmin.jpg' %}" class="align-self-start mr-3 profile-img" alt="...">
-                    <div class="media-body">
-                    <h5 class="mt-0 mb-1">Dongmin Kim</h5>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </li>
+                {% for glifer in glifers %}
+                    <li class="media">
+                        <img src="{{ glifer.profile_img.url }}" class="align-self-start mr-3 profile-img" alt="...">
+                        <div class="media-body">
+                        <h5 class="mt-0 mb-1">{{ glifer.name_kr }} / {{ glifer.name_en }} / {{ glifer.workplace }}</h5>
+                        {{ glifer.self_intro }}
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
 </div>
 
-{% endblock %}
+    {% block js %}
 
+    {% load staticfiles %}
+    <script src="{% static 'aboutus_glifers/js/index.js' %}"></script>
+
+    {% endblock %}
+
+{% endblock %}
 
