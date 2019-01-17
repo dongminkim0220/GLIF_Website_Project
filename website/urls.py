@@ -21,8 +21,8 @@ urlpatterns = [
     path('daily/overview/', include('daily_overview.urls')),
     path('daily/newsclipping/', include('daily_news.urls')),
     path('daily/market/', include('daily_market.urls')),
-    path('indepthanalysis', include('indepthanalysis.urls')),
-    path('recruiting', include('recruiting.urls')),
+    path('indepthanalysis/', include('indepthanalysis.urls')),
+    path('recruiting/', include('recruiting.urls')),
 ]
 
 if settings.DEBUG:
