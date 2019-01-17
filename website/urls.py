@@ -17,7 +17,7 @@ urlpatterns = [
     # Links setups
     path('aboutus/introduction/', include('aboutus_introduction.urls')),
     path('aboutus/glifers/', include('aboutus_glifers.urls')),
-    path('announcement/', include('announcement.urls')),
+    path('announcement/', include('announcement.urls'), name = "announcement"),
     path('daily/overview/', include('daily_overview.urls')),
     path('daily/newsclipping/', include('daily_news.urls')),
     path('daily/market/', include('daily_market.urls')),
