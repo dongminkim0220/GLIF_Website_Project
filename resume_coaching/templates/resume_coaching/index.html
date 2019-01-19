@@ -5,7 +5,7 @@
 <div class = "container">
     <div class = "row">
         <!-- title -->
-        <p class = "lead">Announcements</p>
+        <p class = "lead">Resume Coaching</p>
         
         <!-- tables -->
         <table class="table">
@@ -23,7 +23,7 @@
                     <tr>
                         <th scope="row">{{ post.id }}</th>
                         <td>
-                            <a href="/announcement/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
+                            <a href="/gliferonly/resume_coaching/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
                         </td>
 
                         {% if post.attached_file != '' %}
@@ -79,7 +79,7 @@
     </nav>
 
     <div class = "row align-items-center justify-content-center">
-        <button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/new'">글쓰기</button>
+        <button type="button" class="btn btn-outline-dark" onclick="location.href = '/resume_coaching/new'">글쓰기</button>
     </div>
 </div>
 
