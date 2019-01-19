@@ -1,6 +1,7 @@
 {% extends 'setups/base.html' %}
 
 {% block body %}
+
 <div class = "container">
     <div class = "row">
         <!-- sidebar -->
@@ -12,11 +13,10 @@
                 <li class = "list-group-item list-group-item-dark"> <a href="/daily/market">Daily Market Analysis</a></li>
             </div>
         </div>
-
+ 
         <!-- contents -->
         <div class = "col-md-9">
-            <p class = "lead">Daily News Clipping</p>
-    
+            <p class = "lead">Daily Market Analysis</p>
             <!-- tables -->
             <table class="table">
                 <thead class="thead-light">
@@ -29,47 +29,64 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                    </tr>
+                    {% for post in posts %}
+                        <tr>
+                            <th scope="row">{{ post.id }}</th>
+                            <td>
+                                <a href="/daily/newsclipping/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
+                            </td>
+
+                            {% if post.attached_file != '' %}
+                                <td>Y</td>
+                            {% else %}
+                                <td>N</td>
+                            {% endif %}
+
+                            <td>{{ post.written_date }}</td>
+                            <td>{{ post.writer }}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-    
-            <!-- pagination -->
-            <nav aria-label="Page navigation example">
+
+            <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        
+                    <!-- previous -->
+                    {% if page_obj.has_previous %}
+                    <li class = "page-item">
+                        <a class = "page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        Previous
+                        </a>
                     </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
+                    {% endif %}
+            
+                    <!-- numbers -->
+                    {% for i in page_range %}
+                    {% if page_obj.number == i %}
+                        <li class = "active page-item"><a class="page-link" href="#">{{i}}</a></li>
+                    {% else %}
+                        <li class = "page-item"><a class = "page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+            
+                    <!-- next -->
+                    {% if page_obj.has_next %}
+                    <li class = "page-item">
+                        <a class = "page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            Next
+                        </a>
+                    </li>
+                    {% else %}
                     <li class="page-item">
                         <a class="page-link" href="#">Next</a>
                     </li>
+                    {% endif %}
                 </ul>
             </nav>
-            
+        
             <div class = "row align-items-center justify-content-center">
                 <button type="button" class="btn btn-outline-dark dailybtn" onclick="location.href = '/daily/newsclipping/new'">Add Daily</button>
                 <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#schedule">
@@ -108,6 +125,8 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
 {% endblock %}
