@@ -39,14 +39,28 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # website applications
+
+    ## About Us
     'aboutus_introduction',
     'aboutus_glifers',
+
+    ## Annoucement
     'announcement',
+
+    ## daily
     'daily_market',
     'daily_news',
     'daily_overview',
+
+    ## indepth
     'indepthanalysis',
+
+    ## recruiting
     'recruiting',
+
+    ## GLIF- ONLY
+    'form_archive',
+    'resume_coaching',
 
     # backend setups : Auth, global properties
     'setups',

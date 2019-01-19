@@ -23,8 +23,11 @@ urlpatterns = [
     path('daily/market/', include('daily_market.urls')),
     path('indepthanalysis/', include('indepthanalysis.urls')),
     path('recruiting/', include('recruiting.urls')),
+    path('gliferonly/form_archive/', include('form_archive.urls')),
+    path('gliferonly/resume_coaching/', include('resume_coaching.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+
