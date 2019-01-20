@@ -27,9 +27,10 @@
                         </td>
 
                         {% if post.attached_file != '' %}
-                            <td>Y</td>
+                            <td><button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/{{post.pk}}/download'"><i class="far fa-file"></i></button></td>
+
                         {% else %}
-                            <td>N</td>
+                            <td></td>
                         {% endif %}
 
                         <td>{{ post.written_date }}</td>

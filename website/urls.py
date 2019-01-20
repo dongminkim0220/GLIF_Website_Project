@@ -25,6 +25,11 @@ urlpatterns = [
     path('recruiting/', include('recruiting.urls')),
     path('gliferonly/form_archive/', include('form_archive.urls')),
     path('gliferonly/resume_coaching/', include('resume_coaching.urls')),
+
+    # ckeditor
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
+
 ]
 
 if settings.DEBUG:

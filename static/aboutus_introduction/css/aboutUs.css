@@ -1,0 +1,11 @@
+@media (max-width: 767px) {
+    h1.intro-title {
+        padding-top: 1rem;
+        font-size: 1rem;
+    }
+}
+
+.profile-img{
+    width: 103px;
+    height: 130px;
+}

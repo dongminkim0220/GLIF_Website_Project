@@ -2,7 +2,8 @@
     {% csrf_token %}
     <h1>Update View</h1>
 
-    {{form.as_p }}
+    {{ form.media }}
+    {{ form }}
     
     <div class="form-group">
         <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>

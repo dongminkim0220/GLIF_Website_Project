@@ -40,11 +40,16 @@ Authentication
 8. User Model Setup - with image file handling V
 id/ pw/ krname/ enname/ birthdate/ gender/ email/ phone number /nth/ self-intro /picture 
 Login, Logout, GLIFER ONLY
-
 9. aboutus - glifers update
-Announcement
-Daily - news
-Daily - Market
-indepth
-recruiting
-<backend-todo: 8 tasks>
+10. Announcement REST
+11. Daily - news REST
+12. Daily - Market REST
+13. indepth REST
+14. recruiting REST
+
+20190120
+15. ckeditor > viewer/editor
+16. attached file icon
+
+
+<backend-todo: 14 tasks>

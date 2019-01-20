@@ -3,6 +3,28 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 from django.urls import reverse_lazy
 
+
+import os
+from django.conf import settings
+from django.http import HttpResponse, FileResponse
+from django.utils.http import urlquote
+
+
+def download(request, pk):
+    post = Post.objects.get(pk = pk)
+    get_file_name = str(post.attached_file).replace("/", "\\")
+    filepath = os.path.join(settings.MEDIA_ROOT, get_file_name)    
+    attached_file_name = os.path.basename(str(post.attached_file))
+
+    # a = "b.xlsx"
+    a = attached_file_name
+    response = FileResponse(open(filepath, 'rb'))
+    response['Content-Disposition'] = 'attachment; filename="{}"'.format(urlquote(a))
+    print(response['Content-Disposition'])
+    return response
+
+    
+
 # Create your views here.
 class PostListView(ListView):
     model = Post
