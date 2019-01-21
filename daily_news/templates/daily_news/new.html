@@ -1,10 +1,86 @@
-<form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
-    {% csrf_token %}
-    <h1>Create View</h1>
+{% extends 'setups/base.html' %}
 
-    {{form.as_p }}
+{% block body %}
+
+<div class="container">
+    <!-- <img src="../../../../static/images/gliflinklogo.png" alt="" srcset=""> -->
+    <h1>Global News Clipping</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class = "form-group">
+            <!-- <select name="cars">
+                <option value="volvo">Wall Street Journal</option>
+                <option value="saab">Financial Times</option>
+                <option value="fiat">Bloomberg</option>
+            </select>
+            <input class="form-control" id="date" name="date" type="date" /> -->
+            <div>
+                <label for="{{ form.title.id_for_label }}">Title: </label>
+                {{ form.title }}
+            </div>
+            <div>
+                <label for="{{ form.writer.id_for_label }}">Writer: </label>
+                {{ form.writer }}
+            </div>
+            <div>
+                <label for="{{ form.news_type.id_for_label }}">News Type: </label>
+                {{ form.news_type }}
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>English</p>
+                <div class="form-group">
+                    {{ form.title_1_en }}
+                    {{ form.content_1_en }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.title_2_en }}
+                    {{ form.content_2_en }}
+                    <!-- <input class="form-control" id="second-en" name="second-en" type="text" placeholder="Second Article" />              
+                    <textarea class="form-control" cols="40" id="second-en" name="second-en" rows="10"></textarea> -->
+                </div>
+                
+                <div class="form-group">
+                    {{ form.title_3_en }}
+                    {{ form.content_3_en }}
+                    <!-- <input class="form-control" id="third-en" name="third-en" type="text" placeholder="Third Article" />                   
+                    <textarea class="form-control" cols="40" id="third-en" name="third-en" rows="10"></textarea> -->
+                </div>
+            </div>
+            <div class="col">
+                <p>Korean</p>
+                <div class="form-group">
+                    {{ form.title_1_kr }}
+                    {{ form.content_1_kr }}
+                    <!-- <input class="form-control" id="first-kr" name="first-kr" type="text" placeholder="First Article" />                   
+                    <textarea class="form-control" cols="40" id="first" name="first" rows="10"></textarea> -->
+                </div>
+                
+                <div class="form-group">
+                    {{ form.title_2_kr }}
+                    {{ form.content_2_kr }}
+                    <!-- <input class="form-control" id="second-kr" name="second-kr" type="text" placeholder="Second Article" />              
+                    <textarea class="form-control" cols="40" id="second" name="second" rows="10"></textarea> -->
+                </div>
+                
+                <div class="form-group">
+                    {{ form.title_3_kr }}
+                    {{ form.content_3_kr }}
+                    <!-- <input class="form-control" id="third-kr" name="third-kr" type="text" placeholder="Third Article" />                   
+                    <textarea class="form-control" cols="40" id="third-kr" name="third-kr" rows="10"></textarea> -->
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-dark" name="submit" type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
     
-    <div class="form-group">
-        <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
-    </div>
-</form>
+</div>
+
+{% endblock %}
