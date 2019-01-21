@@ -13,7 +13,7 @@ from django.utils.http import urlquote
 def download(request, pk):
     post = Post.objects.get(pk = pk)
     get_file_name = str(post.attached_file).replace("/", "\\")
-    filepath = os.path.join(settings.MEDIA_ROOT, get_file_name)    
+    filepath = os.path.join(settings.MEDIA_ROOT, get_file_name).replace("/", "\\")    
     attached_file_name = os.path.basename(str(post.attached_file))
 
     # a = "b.xlsx"
