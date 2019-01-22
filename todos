@@ -27,7 +27,6 @@ Dev Log
 ---------------------------------------------------------
 [backend]
 
-20190110
 1. requirements- package management demo V
 2. routing demo V
 3. model demo V
@@ -35,21 +34,24 @@ Dev Log
 7. django version update V
 4. mysite project name > website change V
 6. refactoring : by making multiple apps V
-
-Authentication
 8. User Model Setup - with image file handling V
 id/ pw/ krname/ enname/ birthdate/ gender/ email/ phone number /nth/ self-intro /picture 
 Login, Logout, GLIFER ONLY
-9. aboutus - glifers update
-10. Announcement REST
-11. Daily - news REST
-12. Daily - Market REST
-13. indepth REST
-14. recruiting REST
+9. aboutus - glifers update V
+10. Announcement REST V
+11. Daily - news REST V
+12. Daily - Market REST V
+13. indepth REST V 
+14. recruiting REST V
+15. ckeditor > viewer/editor V
+16. attached file icon V
+17. button icon style V
 
-20190120
-15. ckeditor > viewer/editor
-16. attached file icon
+18. pdf file reportlab - dailynews
+19. daily market - form
+20. pdf file reportlab - dailymarket
+
+21. User setting
 
 
 <backend-todo: 14 tasks>
