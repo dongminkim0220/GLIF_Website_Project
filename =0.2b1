@@ -1,0 +1,15 @@
+Collecting xhtml2pdf
+  Downloading https://files.pythonhosted.org/packages/d1/94/a9b4e0ecb472f4d2bcb277524b586d9c8ee6c50745614f1b340c69bf2a3e/xhtml2pdf-0.2.3.tar.gz (99kB)
+Requirement already satisfied: html5lib>=1.0 in c:\users\ehdal\desktop\glif_website_project\virtualenv\lib\site-packages (from xhtml2pdf) (1.0.1)
+Collecting pyPdf2 (from xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/b4/01/68fcc0d43daf4c6bdbc6b33cc3f77bda531c86b174cac56ef0ffdb96faab/PyPDF2-1.26.0.tar.gz (77kB)
+Requirement already satisfied: Pillow in c:\users\ehdal\desktop\glif_website_project\virtualenv\lib\site-packages (from xhtml2pdf) (5.4.1)
+Requirement already satisfied: reportlab>=3.0 in c:\users\ehdal\desktop\glif_website_project\virtualenv\lib\site-packages (from xhtml2pdf) (3.5.13)
+Requirement already satisfied: six in c:\users\ehdal\desktop\glif_website_project\virtualenv\lib\site-packages (from xhtml2pdf) (1.12.0)
+Requirement already satisfied: webencodings in c:\users\ehdal\desktop\glif_website_project\virtualenv\lib\site-packages (from html5lib>=1.0->xhtml2pdf) (0.5.1)
+Installing collected packages: pyPdf2, xhtml2pdf
+  Running setup.py install for pyPdf2: started
+    Running setup.py install for pyPdf2: finished with status 'done'
+  Running setup.py install for xhtml2pdf: started
+    Running setup.py install for xhtml2pdf: finished with status 'done'
+Successfully installed pyPdf2-1.26.0 xhtml2pdf-0.2.3

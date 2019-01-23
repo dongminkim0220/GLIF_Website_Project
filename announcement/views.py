@@ -1,9 +1,10 @@
+# Basic View
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from django.urls import reverse_lazy
 
-
+# Attachment Response
 import os
 from django.conf import settings
 from django.http import HttpResponse, FileResponse

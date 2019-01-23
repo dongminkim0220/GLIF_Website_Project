@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     # packages
     'ckeditor',
     'ckeditor_uploader',
+    'easy_pdf',
 ]
 
 MIDDLEWARE = [

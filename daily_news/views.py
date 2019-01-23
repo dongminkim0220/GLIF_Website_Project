@@ -1,7 +1,13 @@
+# Basic View
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from django.urls import reverse_lazy
+from easy_pdf.views import PDFTemplateView
+
+class CreateReport(PDFTemplateView):
+    template_name = 'daily_news/pdf_template.html'
+
 
 # Create your views here.
 class PostListView(ListView):

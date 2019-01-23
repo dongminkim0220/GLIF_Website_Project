@@ -36,12 +36,10 @@
                                 <a href="/daily/newsclipping/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
                             </td>
 
-                            {% if post.attached_file != '' %}
-                                <td>Y</td>
-                            {% else %}
-                                <td>N</td>
-                            {% endif %}
-
+                            <td>
+                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/newsclipping/{{post.pk}}/create_report'"><i class="far fa-file"></i></button>
+                            </td> 
+                            
                             <td>{{ post.written_date }}</td>
                             <td>{{ post.writer }}</td>
                         </tr>
