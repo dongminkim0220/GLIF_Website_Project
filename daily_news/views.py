@@ -3,10 +3,27 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from django.urls import reverse_lazy
-from easy_pdf.views import PDFTemplateView
+from easy_pdf.views import PDFTemplateView, PDFTemplateResponseMixin
 
-class CreateReport(PDFTemplateView):
+class CreateReport(PDFTemplateResponseMixin, DetailView):
     template_name = 'daily_news/pdf_template.html'
+    model = Post
+    context_object_name = "post"
+
+    def get_context_data(self, **kwargs):
+        return super(CreateReport, self).get_context_data(
+            pagesize='A4',
+            title='Hi there!',
+            encoding = u"utf-8",
+            **kwargs
+        )
+
+    def get_pdf_response(self, context, **kwargs):
+        return super(CreateReport, self).get_pdf_response(
+            context,
+            **kwargs,
+            charset = "utf-8",
+        )
 
 
 # Create your views here.
