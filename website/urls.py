@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from users.views import glifers, applicants
 
 urlpatterns = [
     # Home : Main View 
@@ -12,6 +13,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
+
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', TemplateView.as_view(template_name="signup.html"), name='signup'),
+    path('accounts/signup/glifer/', glifers.GliferSignUpView.as_view(), name='glifer_signup'),
+    path('accounts/signup/applicant/', applicants.ApplicantSignUpView.as_view(), name='applicant_signup'),
+
     
 
     # Links setups
