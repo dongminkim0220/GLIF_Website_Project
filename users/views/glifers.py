@@ -1,9 +1,11 @@
 from django.contrib.auth import login
 from django.shortcuts import redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
+from django.urls import reverse_lazy
 
-from ..forms import GliferSignUpForm
-from ..models import CustomUser 
+
+from ..forms import GliferSignUpForm, GliferCreateForm, GliferEditForm
+from ..models import CustomUser, Glifer 
 
 class GliferSignUpView(CreateView):
     model = CustomUser
@@ -18,3 +20,11 @@ class GliferSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('/')
+
+
+class GliferEditView(UpdateView):
+    model = Glifer
+    form_class = GliferEditForm
+    context_object_name = 'glifer'
+    template_name = 'detail/edit.html'
+    success_url = reverse_lazy('home')

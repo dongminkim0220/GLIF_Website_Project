@@ -36,7 +36,7 @@ class Glifer(models.Model):
     email= models.EmailField(max_length = 250)
     work_at = models.CharField(max_length = 250, blank = True)
     self_intro = models.TextField(max_length = 1000)
-    profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/')
+    profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/', blank = True)
     nth = models.CharField(
         max_length=2,
         choices=nth_CHOICES,

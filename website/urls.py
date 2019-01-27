@@ -18,6 +18,7 @@ urlpatterns = [
     path('accounts/signup/', TemplateView.as_view(template_name="signup.html"), name='signup'),
     path('accounts/signup/glifer/', glifers.GliferSignUpView.as_view(), name='glifer_signup'),
     path('accounts/signup/applicant/', applicants.ApplicantSignUpView.as_view(), name='applicant_signup'),
+    path('accounts/glifer/userinfo/<int:pk>', glifers.GliferEditView.as_view(), name = 'glifer_edit'),
 
     
 

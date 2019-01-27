@@ -47,11 +47,13 @@ Login, Logout, GLIFER ONLY
 16. attached file icon V
 17. button icon style V
 18. pdf file reportlab - dailynews V
+21. User setting V
+22. signup design refactor V
+23. user info edit page - glifer V
 
 19. daily market - form
 20. pdf file reportlab - dailymarket
 
-21. User setting V
-22. signup design refactor
+24. user info edit page - applicant
 
-<backend-todo: 14 tasks>
+<backend-todo: 24 tasks>

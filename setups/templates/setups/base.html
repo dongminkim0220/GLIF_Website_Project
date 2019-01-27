@@ -91,8 +91,9 @@
         {% if user.is_authenticated %}
             <ul class="nav navbar-nav navbar-right">
                 <li class = "authentification greeting">
-                    Hello, {{ user.name_en }}! 
+                    Hello, {{ user.username }}! 
                 </li>
+                <li class = "authentification"> <a class = "auth-link" href="/accounts/glifer/userinfo/{{ user.pk }}">Info</a> </li>
                 <li class = "authentification"> <a class = "auth-link" href="{% url 'logout' %}">Logout</a> </li>
             </ul>
         {% else %}
