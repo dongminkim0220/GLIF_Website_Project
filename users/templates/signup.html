@@ -34,22 +34,25 @@
 
     <body>
         <!-- Top content -->
-        <div class="jumbotron">
-            <h1 class="display-4">Sign Up Options </h1>
-            <p class="lead"></p>
-            <hr class="my-4">
-            <div class = "row">
-                <div class = "col">
-                    <p>글리프 회원이신가요?</p>
-                    <a class="btn btn-dark btn-lg" href="/accounts/signup/glifer/" role="button">Sign Up as GLIFer</a>
+        <div class = "container">
+            <div class="jumbotron">
+                <h1 class="display-4">Sign Up Options</h1>
+                <p class="lead"></p>
+                <hr class="my-4">
+                <div class = "row">
+                    <div class = "col">
+                        <p>글리프 회원이신가요?</p>
+                        <button type="button" class="btn btn-dark" onclick="location.href = '/accounts/signup/glifer/'">Sign Up as GLIFer</button>
+                    </div>
+                    <div class = "col">
+                        <p>5기 지원자이신가요?</p>
+                        <button type="button" class="btn btn-dark" onclick="location.href = '/accounts/signup/applicant/'">Sign Up as Applicant</button>
+                    </div>
                 </div>
-                <div class = "col">
-                    <p>지원자이신가요?</p>
-                    <a class="btn btn-dark btn-lg" href="/accounts/signup/applicant/" role="button">Sign Up as Applicant</a>
-                </div>
+                
             </div>
-            
         </div>
+        
     </body>
 
 </html>
