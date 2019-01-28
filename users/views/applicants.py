@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 
-from ..forms import ApplicantSignUpForm, ApplicantCreateForm, ApplicantEditForm
+from ..forms import ApplicantSignUpForm, ApplicantEditForm
 from ..models import CustomUser, Applicant 
 
 class ApplicantSignUpView(CreateView):

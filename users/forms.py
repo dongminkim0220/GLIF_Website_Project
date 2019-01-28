@@ -32,19 +32,9 @@ class ApplicantSignUpForm(UserCreationForm):
         applicant = Applicant.objects.create(user=user)
         return user
 
-class GliferCreateForm(forms.ModelForm):
-    class Meta:
-        model = Glifer
-        fields = '__all__'
-
 class GliferEditForm(forms.ModelForm):
     class Meta:
         model = Glifer
-        fields = '__all__'
-
-class ApplicantCreateForm(forms.ModelForm):
-    class Meta:
-        model = Applicant
         fields = '__all__'
 
 class ApplicantEditForm(forms.ModelForm):
@@ -52,10 +42,3 @@ class ApplicantEditForm(forms.ModelForm):
         model = Applicant
         fields = '__all__'
 
-
-class CustomUserCreationForm(UserCreationForm):
-    pass
-
-
-class CustomUserChangeForm(UserChangeForm):
-    pass    

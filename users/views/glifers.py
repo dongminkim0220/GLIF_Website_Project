@@ -4,7 +4,7 @@ from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 
 
-from ..forms import GliferSignUpForm, GliferCreateForm, GliferEditForm
+from ..forms import GliferSignUpForm, GliferEditForm
 from ..models import CustomUser, Glifer 
 
 class GliferSignUpView(CreateView):
