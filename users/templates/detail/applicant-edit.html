@@ -6,7 +6,7 @@
         <hr>
         <div class = "row">
             <div>
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form.as_p}}
                     <button type="submit" class="btn-dark">Edit!</button>

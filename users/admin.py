@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from .models import CustomUser, Glifer, Applicant
+from .models import CustomUser, Glifer, Applicant, Subject
 
 # Register your models here.
 
@@ -11,3 +11,5 @@ from .models import CustomUser, Glifer, Applicant
 admin.site.register(CustomUser)
 admin.site.register(Glifer)
 admin.site.register(Applicant)
+admin.site.register(Subject)
+

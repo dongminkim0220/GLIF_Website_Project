@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Glifer, Applicant
+from .models import CustomUser, Glifer, Applicant, Subject
 
 from django.db import transaction
 
@@ -19,10 +19,10 @@ class GliferSignUpForm(UserCreationForm):
         return user
 
 class ApplicantSignUpForm(UserCreationForm):
-    # test = forms.CharField()
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
+        
 
     @transaction.atomic
     def save(self):
@@ -36,9 +36,23 @@ class GliferEditForm(forms.ModelForm):
     class Meta:
         model = Glifer
         fields = '__all__'
+        exclude = ['user',]
+        
 
 class ApplicantEditForm(forms.ModelForm):
     class Meta:
         model = Applicant
         fields = '__all__'
+        exclude = ['user',]
 
+    havetaken_courses = forms.ModelMultipleChoiceField(
+        queryset=Subject.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    willtake_courses = forms.ModelMultipleChoiceField(
+        queryset=Subject.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
