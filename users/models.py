@@ -125,4 +125,5 @@ class Applicant(models.Model):
     glifmotive = models.TextField(max_length = 5000)
     futureplan = models.TextField(max_length = 5000)
 
-
+    def __str__(self):
+        return self.user.username
