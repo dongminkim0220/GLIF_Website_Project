@@ -26,5 +26,5 @@ class GliferEditView(UpdateView):
     model = Glifer
     form_class = GliferEditForm
     context_object_name = 'glifer'
-    template_name = 'detail/edit.html'
+    template_name = 'detail/glifer-edit.html'
     success_url = reverse_lazy('home')

@@ -1,9 +1,10 @@
 from django.contrib.auth import login
 from django.shortcuts import redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
+from django.urls import reverse_lazy
 
-from ..forms import ApplicantSignUpForm
-from ..models import CustomUser 
+from ..forms import ApplicantSignUpForm, ApplicantCreateForm, ApplicantEditForm
+from ..models import CustomUser, Applicant 
 
 class ApplicantSignUpView(CreateView):
     model = CustomUser
@@ -17,4 +18,11 @@ class ApplicantSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('/')
+        return redirect('/recruiting')
+
+class ApplicantEditView(UpdateView):
+    model = Applicant
+    form_class = ApplicantEditForm
+    context_object_name = 'applicant'
+    template_name = 'detail/applicant-edit.html'
+    success_url = reverse_lazy('recruiting-index')

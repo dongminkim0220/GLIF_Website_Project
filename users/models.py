@@ -9,7 +9,9 @@ class CustomUser(AbstractUser):
     is_glifer = models.BooleanField(default=False)
     is_applicant = models.BooleanField(default=False)
     
-
+    def __str__(self):
+        return self.username
+    
 # Glifer Model
 ## Setup
 glif_OB = 'OB'

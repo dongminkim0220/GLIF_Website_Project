@@ -42,6 +42,15 @@ class GliferEditForm(forms.ModelForm):
         model = Glifer
         fields = '__all__'
 
+class ApplicantCreateForm(forms.ModelForm):
+    class Meta:
+        model = Applicant
+        fields = '__all__'
+
+class ApplicantEditForm(forms.ModelForm):
+    class Meta:
+        model = Applicant
+        fields = '__all__'
 
 
 class CustomUserCreationForm(UserCreationForm):

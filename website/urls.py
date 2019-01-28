@@ -19,7 +19,7 @@ urlpatterns = [
     path('accounts/signup/glifer/', glifers.GliferSignUpView.as_view(), name='glifer_signup'),
     path('accounts/signup/applicant/', applicants.ApplicantSignUpView.as_view(), name='applicant_signup'),
     path('accounts/glifer/userinfo/<int:pk>', glifers.GliferEditView.as_view(), name = 'glifer_edit'),
-
+    path('accounts/applicant/userinfo/<int:pk>', applicants.ApplicantEditView.as_view(), name = 'applicant_edit'),
     
 
     # Links setups
