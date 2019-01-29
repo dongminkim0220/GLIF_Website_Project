@@ -111,7 +111,7 @@ class Applicant(models.Model):
     # Personal Info
     name_kr = models.CharField(max_length = 250, blank = True)
     phonenumber = models.CharField(max_length = 250, blank = True)
-    birthdate = models.DateField(blank = True)
+    birthdate = models.DateField(null = True, blank = True)
     email= models.EmailField(max_length = 250, blank = True)
     
     # Academic Info
@@ -121,7 +121,7 @@ class Applicant(models.Model):
         choices=schyr_CHOICES,
         default=schyr_22,
     )
-    grad = models.DateField(blank = True)
+    grad = models.DateField(null = True, blank = True)
 
     # Extracurricular Activities
     extra = models.TextField(max_length = 5000, blank = True)

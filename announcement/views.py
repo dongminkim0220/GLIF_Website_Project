@@ -7,8 +7,10 @@ from django.urls import reverse_lazy
 # Attachment Response
 import os
 from django.conf import settings
-from django.http import HttpResponse, FileResponse
+from django.http import HttpResponse, FileResponse, HttpResponseRedirect
 from django.utils.http import urlquote
+
+from users.models import Glifer, CustomUser
 
 
 def download(request, pk):
@@ -60,8 +62,16 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     model = Post
     template_name = "announcement/new.html"
-    fields = "__all__"
-    success_url = reverse_lazy('announcement-index')
+    fields = ['title', 'attached_file', 'content']
+
+    def get_success_url(self):
+        return reverse_lazy('announcement-index')
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.writer = Glifer.objects.get(user=self.request.user)  # use your own profile here
+        post.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class PostUpdateView(UpdateView):
     model = Post
