@@ -1,7 +1,29 @@
+# basic View
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from django.urls import reverse_lazy
+
+# Attachment Response
+import os
+from django.conf import settings
+from django.http import HttpResponse, FileResponse, HttpResponseRedirect
+from django.utils.http import urlquote
+
+from users.models import Glifer, CustomUser
+
+def download(request, pk):
+    post = Post.objects.get(pk = pk)
+    get_file_name = str(post.attached_file).replace("/", "\\")
+    filepath = os.path.join(settings.MEDIA_ROOT, get_file_name).replace("\\", "/")    
+    attached_file_name = os.path.basename(str(post.attached_file))
+
+    a = attached_file_name
+    response = FileResponse(open(filepath, 'rb'))
+    response['Content-Disposition'] = 'attachment; filename="{}"'.format(urlquote(a))
+    print(response['Content-Disposition'])
+    return response
+
 
 # Create your views here.
 class PostListView(ListView):
@@ -37,8 +59,16 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     model = Post
     template_name = "form_archive/new.html"
-    fields = "__all__"
-    success_url = reverse_lazy('form_archive-index')
+    fields = ['title', 'attached_file', 'content']
+        
+    def get_success_url(self):
+        return reverse_lazy('form_archive-index')
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.writer = Glifer.objects.get(user=self.request.user)
+        post.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class PostUpdateView(UpdateView):
     model = Post
