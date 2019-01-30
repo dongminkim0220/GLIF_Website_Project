@@ -7,6 +7,9 @@
 .container {
     margin-top: 100px;
     margin-bottom: 100px;
+    border-left : 1px solid gray;
+    border-right : 1px solid gray;
+    padding : 0 2.0rem;
 }
 /* button */
 .btn {
