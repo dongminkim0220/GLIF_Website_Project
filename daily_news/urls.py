@@ -9,7 +9,5 @@ urlpatterns = [
     path('new', PostCreateView.as_view(), name = "daily_news-new"),
     path('<int:pk>/update', PostUpdateView.as_view(), name = "daily_news-update"),
     path('<int:pk>/delete', PostDeleteView.as_view(), name = "daily_news-delete"),
-    # path('<int:pk>/create_report', views.createReport),
     path('<int:pk>/create_report', CreateReport.as_view(), name = "pdfcreate"),
-
 ]

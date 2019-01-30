@@ -5,6 +5,9 @@ from .models import Post
 from django.urls import reverse_lazy
 from easy_pdf.views import PDFTemplateView, PDFTemplateResponseMixin
 
+from users.models import Glifer, CustomUser
+from django.http import HttpResponseRedirect
+
 class CreateReport(PDFTemplateResponseMixin, DetailView):
     template_name = 'daily_news/pdf_template.html'
     model = Post
@@ -60,8 +63,19 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     model = Post
     template_name = "daily_news/new.html"
-    fields = "__all__"
-    success_url = reverse_lazy('daily_news-index')
+    fields = ['title', 'news_type', 
+    'title_1_kr','title_2_kr','title_3_kr',
+    'title_1_en','title_2_en','title_3_en',
+    'content_1_kr','content_2_kr','content_3_kr','content_1_en','content_2_en','content_3_en',]
+
+    def get_success_url(self):
+        return reverse_lazy('daily_news-index')
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.writer = Glifer.objects.get(user=self.request.user)  # use your own profile here
+        post.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class PostUpdateView(UpdateView):
     model = Post
