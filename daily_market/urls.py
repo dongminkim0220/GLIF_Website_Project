@@ -1,6 +1,6 @@
 from django.urls import include, path
 from django.contrib import admin
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, CreateReport
 
 urlpatterns = [
     path('', PostListView.as_view(), name='daily_market-index'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('new', PostCreateView.as_view(), name = "daily_market-new"),
     path('<int:pk>/update', PostUpdateView.as_view(), name = "daily_market-update"),
     path('<int:pk>/delete', PostDeleteView.as_view(), name = "daily_market-delete"),
+    path('<int:pk>/create_report', CreateReport.as_view(), name = "pdfcreate"),
 ]

@@ -1,9 +1,36 @@
+# basic view
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from django.urls import reverse_lazy
 
-# Create your views here.
+# pdf
+from easy_pdf.views import PDFTemplateView, PDFTemplateResponseMixin
+
+# id
+from users.models import Glifer, CustomUser
+from django.http import HttpResponseRedirect
+
+class CreateReport(PDFTemplateResponseMixin, DetailView):
+    template_name = 'daily_market/pdf_template.html'
+    model = Post
+    context_object_name = "post"
+
+    def get_context_data(self, **kwargs):
+        return super(CreateReport, self).get_context_data(
+            pagesize='A4',
+            title='Hi there!',
+            encoding = u"utf-8",
+            **kwargs
+        )
+
+    def get_pdf_response(self, context, **kwargs):
+        return super(CreateReport, self).get_pdf_response(
+            context,
+            **kwargs,
+            charset = "utf-8",
+        )
+
 class PostListView(ListView):
     model = Post
     template_name = 'daily_market/index.html'
@@ -37,13 +64,64 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     model = Post
     template_name = "daily_market/new.html"
-    fields = "__all__"
-    success_url = reverse_lazy('daily_market-index')
+    fields = [
+        'title',
+        'e_u_cl', 'e_u_ch',
+        'u_k_cl', 'u_k_ch',
+        'fed_cl', 'fed_ch',
+        'spread_cl', 'spread_ch',
+        'usyr2_cl', 'usyr2_ch',
+        'usyr10_cl', 'usyr10_ch',
+        'bok_cl', 'bok_ch',
+        'kryr3_cl', 'kryr3_ch',
+        'kryr10_cl', 'kryr10_ch',
+        'dj_cl', 'dj_ch',
+        'sp_cl', 'sp_ch',
+        'nas_cl', 'nas_ch',
+        'ksp_cl', 'ksp_ch',
+        'nik_cl', 'nik_ch',
+        'hk_cl', 'hk_ch',
+        'bco_cl', 'bco_ch',
+        'wti_cl', 'wti_ch',
+        'gd_cl', 'gd_ch',
+        'bdi_cl', 'bdi_ch', 
+    ]
 
+    def get_success_url(self):
+        return reverse_lazy('daily_market-index')
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.writer = Glifer.objects.get(user=self.request.user)
+        post.save()
+        return HttpResponseRedirect(self.get_success_url())
+        
 class PostUpdateView(UpdateView):
     model = Post
     template_name = "daily_market/update.html"
-    fields = "__all__"
+    fields = [
+        'title',
+        'e_u_cl', 'e_u_ch',
+        'u_k_cl', 'u_k_ch',
+        'fed_cl', 'fed_ch',
+        'spread_cl', 'spread_ch',
+        'usyr2_cl', 'usyr2_ch',
+        'usyr10_cl', 'usyr10_ch',
+        'bok_cl', 'bok_ch',
+        'kryr3_cl', 'kryr3_ch',
+        'kryr10_cl', 'kryr10_ch',
+        'dj_cl', 'dj_ch',
+        'sp_cl', 'sp_ch',
+        'nas_cl', 'nas_ch',
+        'ksp_cl', 'ksp_ch',
+        'ksd_cl', 'ksd_ch',
+        'nik_cl', 'nik_ch',
+        'hk_cl', 'hk_ch',
+        'bco_cl', 'bco_ch',
+        'wti_cl', 'wti_ch',
+        'gd_cl', 'gd_ch',
+        'bdi_cl', 'bdi_ch', 
+    ]
 
 class PostDeleteView(DeleteView):
     model = Post

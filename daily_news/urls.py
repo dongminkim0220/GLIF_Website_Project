@@ -1,7 +1,6 @@
 from django.urls import include, path
 from django.contrib import admin
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, CreateReport
-from . import views
 
 urlpatterns = [
     path('', PostListView.as_view(), name='daily_news-index'),

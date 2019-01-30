@@ -36,11 +36,9 @@
                                 <a href="/daily/market/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
                             </td>
 
-                            {% if post.attached_file != '' %}
-                                <td>Y</td>
-                            {% else %}
-                                <td>N</td>
-                            {% endif %}
+                            <td>
+                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/create_report'"><i class="far fa-file"></i></button>
+                            </td> 
 
                             <td>{{ post.written_date }}</td>
                             <td>{{ post.writer }}</td>
@@ -88,8 +86,43 @@
             </nav>
         
             <div class = "row align-items-center justify-content-center">
-                <button type="button" class="btn btn-outline-dark" onclick="location.href = '/daily/market/new'">글쓰기</button>
+                <button type="button" class="btn btn-outline-dark dailybtn" onclick="location.href = '/daily/market/new'">Add Daily</button>
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#schedule">
+                        Check Schedule
+                </button>
             </div>
+    
+            <!-- Modal -->
+            <div class="modal fade" id="schedule" tabindex="-1" role="dialog" aria-labelledby="scheduleLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleLabel">Schedules</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">날짜</th>
+                                    <th scope="col">WSJ</th>
+                                    <th scope="col">FT</th>
+                                    <th scope="col">BB</th>
+                                    <th scope="col">Market</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         
         </div>
 

@@ -73,7 +73,7 @@ class PostCreateView(CreateView):
 
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.writer = Glifer.objects.get(user=self.request.user)  # use your own profile here
+        post.writer = Glifer.objects.get(user=self.request.user)
         post.save()
         return HttpResponseRedirect(self.get_success_url())
 

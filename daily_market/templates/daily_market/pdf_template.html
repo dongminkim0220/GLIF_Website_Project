@@ -1,20 +1,21 @@
-{% extends 'setups/base.html' %}
-
-{% block body %}
-
 <div class="container">
-    <img src="../../../../static/images/gliflinklogo.png" alt="" srcset="">
-    <form action="" method="post">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <h1>Daily Market Update</h1>
-        <input class="form-control" id="date" name="date" type="date" />
         <p>* All rates are as of the end of previous business day, and % change is DoD</p>
+        <div class = "form-group">
+            <div>
+                <label for="{{ form.title.id_for_label }}">Title: </label>
+                {{ post.title }}
+            </div>
+        </div>
         <div class="row">
             <div class="col">
-                <p>Daily Dataset</p>
-
+                <p class = "lead">Daily Dataset</p>
                 <!-- exr -->
                 <div class = "form-group">
                     <h6>Currency Exchange Rates</h6>
+                    <hr>
                     <table>
                         <thead class = "thead-light">
                             <th scope="col">FX</th>
@@ -25,19 +26,19 @@
                             <tr>
                                 <th scope = "row">EUR-USD</th>
                                 <td>
-                                    <input class="form-control" id="e/u_cl" name="e/u_cl" type="number"/>
+                                    {{ post.e_u_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="e/u_ch" name="e/u_ch" type="number"/>
+                                    {{ post.e_u_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">USD-KRW</th>
                                 <td>
-                                    <input class="form-control" id="u/k_cl" name="u/k_cl" type="number"/>
+                                    {{ post.u_k_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="u/k_ch" name="u/k_ch" type="number"/>
+                                    {{ post.u_k_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -47,6 +48,7 @@
                 <!-- bdrates -->
                 <div class = "form-group">
                     <h6>Rates and Bonds</h6>
+                    <hr>
                     <table>
                         <thead class = "thead-light">
                             <th scope="col">United States</th>
@@ -57,37 +59,37 @@
                             <tr>
                                 <th scope = "row">Federal Reserve Target Rate</th>
                                 <td>
-                                    <input class="form-control" id="fed_cl" name="fed_cl" type="number"/>
+                                    {{ post.fed_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="fed_cl" name="fed_ch" type="number"/>
+                                    {{ post.fed_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">2-10 Year Spread</th>
                                 <td>
-                                    <input class="form-control" id="spread_cl" name="spread_cl" type="number"/>
+                                    {{ post.spread_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="spread_ch" name="spread_ch" type="number"/>
+                                    {{ post.spread_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">2-Year T-Notes</th>
                                 <td>
-                                    <input class="form-control" id="usyr2_cl" name="usyr2_cl" type="number"/>
+                                    {{ post.usyr2_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="usyr2_ch" name="usyr2_ch" type="number"/>
+                                    {{ post.usyr2_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">10-Year T-bonds</th>
                                 <td>
-                                    <input class="form-control" id="usyr10_cl" name="usyr10_cl" type="number"/>
+                                    {{ post.usyr10_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="usyr10_ch" name="usyr10_ch" type="number"/>
+                                    {{ post.usyr10_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -102,28 +104,28 @@
                             <tr>
                                 <th scope = "row">BoK Interest Rate</th>
                                 <td>
-                                    <input class="form-control" id="bok_cl" name="bok_cl" type="number"/>
+                                    {{ post.bok_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="bok_ch" name="bok_ch" type="number"/>
+                                    {{ post.bok_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">KTB 3-Year</th>
                                 <td>
-                                    <input class="form-control" id="kryr3_cl" name="kryr3_cl" type="number"/>
+                                    {{ post.kryr3_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="kryr3_cl" name="kryr3_ch" type="number"/>
+                                    {{ post.kryr3_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">KTB 10-Year</th>
                                 <td>
-                                    <input class="form-control" id="kryr10_cl" name="kryr10_cl" type="number"/>
+                                    {{ post.kryr10_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="kryr10_ch" name="kryr10_ch" type="number"/>
+                                    {{ post.kryr10_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -133,6 +135,7 @@
                 <!-- stk -->
                 <div class = "form-group">
                     <h6>Stock Indices</h6>
+                    <hr>
                     <table>
                         <thead class = "thead-light">
                             <th scope="col">US</th>
@@ -143,28 +146,28 @@
                             <tr>
                                 <th scope = "row">Dow Jones</th>
                                 <td>
-                                    <input class="form-control" id="dj_cl" name="dj_cl" type="number"/>
+                                    {{ post.dj_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="dj_ch" name="dj_ch" type="number"/>
+                                    {{ post.dj_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">S&P 500</th>
                                 <td>
-                                    <input class="form-control" id="sp_cl" name="sp_cl" type="number"/>
+                                    {{ post.sp_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="sp_ch" name="sp_ch" type="number"/>
+                                    {{ post.sp_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">NASDAQ</th>
                                 <td>
-                                    <input class="form-control" id="nas_cl" name="nas_cl" type="number"/>
+                                    {{ post.nas_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="nas_ch" name="nas_ch" type="number"/>
+                                    {{ post.nas_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -179,19 +182,19 @@
                             <tr>
                                 <th scope = "row">KOSPI</th>
                                 <td>
-                                    <input class="form-control" id="ksp_cl" name="ksp_cl" type="number"/>
+                                    {{ post.ksp_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="ksp_ch" name="ksp_ch" type="number"/>
+                                    {{ post.ksp_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">KOSDAQ</th>
                                 <td>
-                                    <input class="form-control" id="ksd_cl" name="ksd_cl" type="number"/>
+                                    {{ post.ksd_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="ksd_ch" name="ksd_ch" type="number"/>
+                                    {{ post.ksd_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -206,10 +209,10 @@
                             <tr>
                                 <th scope = "row">NIKKEI 225</th>
                                 <td>
-                                    <input class="form-control" id="nik_cl" name="nik_cl" type="number"/>
+                                    {{ post.nik_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="nik_ch" name="nik_ch" type="number"/>
+                                    {{ post.nik_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -224,10 +227,10 @@
                             <tr>
                                 <th scope = "row">Hang Seng</th>
                                 <td>
-                                    <input class="form-control" id="hk_cl" name="hk_cl" type="number"/>
+                                    {{ post.hk_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="hk_ch" name="hk_ch" type="number"/>
+                                    {{ post.hk_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -237,6 +240,7 @@
                 <!-- comm -->
                 <div class = "form-group">
                     <h6>Commodities</h6>
+                    <hr>
                     <table>
                         <thead class = "thead-light">
                             <th scope="col">Energy</th>
@@ -247,19 +251,19 @@
                             <tr>
                                 <th scope = "row">Brent Crude Oil</th>
                                 <td>
-                                    <input class="form-control" id="bco_cl" name="bco_cl" type="number"/>
+                                    {{ post.bco_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="bco_ch" name="bco_ch" type="number"/>
+                                    {{ post.bco_ch }}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope = "row">WTI</th>
                                 <td>
-                                    <input class="form-control" id="wti_cl" name="wti_cl" type="number"/>
+                                    {{ post.wti_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="wti_ch" name="wti_ch" type="number"/>
+                                    {{ post.wti_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -274,10 +278,10 @@
                             <tr>
                                 <th scope = "row">Gold</th>
                                 <td>
-                                    <input class="form-control" id="gd_cl" name="gd_cl" type="number"/>
+                                    {{ post.gd_cl}}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="gd_ch" name="gd_ch" type="number"/>
+                                    {{ post.gd_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -292,10 +296,10 @@
                             <tr>
                                 <th scope = "row">BDI</th>
                                 <td>
-                                    <input class="form-control" id="bdi_cl" name="bdi_cl" type="number"/>
+                                    {{ post.bdi_cl }}
                                 </td>
                                 <td>
-                                    <input class="form-control" id="bdi_ch" name="bdi_ch" type="number"/>
+                                    {{ post.bdi_ch }}
                                 </td>
                             </tr>
                         </tbody>
@@ -304,7 +308,7 @@
             </div>
 
             <div class="col">
-                <p>Daily Market Recap</p>
+                <p class = "lead">Daily Market Recap</p>
                 <div class = "form-group">
                     <h6>Americas</h6>
                     <button class = "btn btn-dark">Add Recaps</button>
@@ -323,8 +327,10 @@
                 </div>
             </div>
         </div>    
+
+        <div class="form-group">
+            <input type="submit" class="form-submit" value="Submit"/>
+        </div>
     </form>
     
 </div>
-
-{% endblock %}
