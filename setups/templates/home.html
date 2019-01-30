@@ -5,25 +5,94 @@
 {% load staticfiles %}
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
-<link rel="stylesheet" type="text/css" href="{% static 'setups/css/main.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'setups/css/navbar.css' %}">
 
 {% endblock %}
 
 {% block body %}
 
-<!-- slides -->
-                
-<div id="landing-header">
-        <h1>Welcome to GLIF!</h1>
-        <h2>Global Leaders In Finance</h2>
-    </div>
+<header class="masthead">
+    <video width = "100%" autoplay loop poster="../static/setups/images/backup.jpg" id="bgvid">
+        <source src="../static/setups/video/main.mp4" type="video/mp4">
+    </video>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
 
-    <ul class="slideshow">
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+  
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+                <img class="img-fluid rounded-circle" src="../static/setups/images/global.jpg" alt="">
+            </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+                <h2 class="display-4">GLOBAL</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="p-5">
+            <img class="img-fluid rounded-circle" src="../static/setups/images/leaders.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-5">
+            <h2 class="display-4">LEADERS</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+            <img class="img-fluid rounded-circle" src="../static/setups/images/in.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+            <h2 class="display-4">IN</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="p-5">
+            <img class="img-fluid rounded-circle" src="../static/setups/images/finance.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-5">
+            <h2 class="display-4">FINANCE</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
