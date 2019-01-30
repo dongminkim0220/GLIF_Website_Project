@@ -1,6 +1,20 @@
-<h1>Detail View</h1>
-{{ post.title }}
-{{ post.content }}
+{% extends 'setups/base.html' %}
 
-<a href="/gliferonly/resume_coaching/{{post.pk}}/update">update</a>
-<a href="/gliferonly/resume_coaching/{{post.pk}}/delete">delete</a>
+{% block body %}
+    <div class = "container">
+        <h1>{{post.title}}</h1>
+        <div>
+            {% if post.attached_file != '' %}
+                <span>첨부파일: {{post.attached_file}}</span>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/{{post.pk}}/download'">Download</button>
+            {% endif %}
+        </div>
+        <div>
+            {{ post.content | safe }}
+        </div>
+        <div class = "row align-items-center justify-content-center">
+            <button type="button" class="btn btn-outline-dark" onclick="location.href = '/gliferonly/resume_coaching/{{post.pk}}/update'">update</button>
+            <button type="button" class="btn btn-outline-dark" onclick="location.href = '/gliferonly/resume_coaching/{{post.pk}}/delete'">delete</button>
+        </div>
+    </div>
+{% endblock %}
