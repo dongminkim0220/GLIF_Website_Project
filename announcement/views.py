@@ -19,7 +19,6 @@ def download(request, pk):
     filepath = os.path.join(settings.MEDIA_ROOT, get_file_name).replace("\\", "/")    
     attached_file_name = os.path.basename(str(post.attached_file))
 
-    # a = "b.xlsx"
     a = attached_file_name
     response = FileResponse(open(filepath, 'rb'))
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(urlquote(a))
@@ -69,7 +68,7 @@ class PostCreateView(CreateView):
 
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.writer = Glifer.objects.get(user=self.request.user)  # use your own profile here
+        post.writer = Glifer.objects.get(user=self.request.user)
         post.save()
         return HttpResponseRedirect(self.get_success_url())
 
