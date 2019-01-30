@@ -50,10 +50,18 @@ Login, Logout, GLIFER ONLY
 21. User setting V
 22. signup design refactor V
 23. user info edit page - glifer V
+24. user info edit page - applicant V
+30. overall refactoring - announcement update delete V
+
+25. overall refactoring - news
+26. overall refactoring - market
+27. overall refactoring - indepth
+28. overall refactoring - Form
+29. overall refactoring - Resume
+31. ckeditor setting fix
 
 19. daily market - form
 20. pdf file reportlab - dailymarket
 
-24. user info edit page - applicant
 
-<backend-todo: 24 tasks>
+<backend-todo: 29 tasks>
