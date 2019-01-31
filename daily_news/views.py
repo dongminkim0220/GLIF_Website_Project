@@ -66,7 +66,8 @@ class PostCreateView(CreateView):
     fields = ['title', 'news_type', 
     'title_1_kr','title_2_kr','title_3_kr',
     'title_1_en','title_2_en','title_3_en',
-    'content_1_kr','content_2_kr','content_3_kr','content_1_en','content_2_en','content_3_en',]
+    'content_1_kr','content_2_kr','content_3_kr',
+    'content_1_en','content_2_en','content_3_en',]
 
     def get_success_url(self):
         return reverse_lazy('daily_news-index')
@@ -80,7 +81,12 @@ class PostCreateView(CreateView):
 class PostUpdateView(UpdateView):
     model = Post
     template_name = "daily_news/update.html"
-    fields = "__all__"
+    fields = ['title', 'news_type', 
+    'title_1_kr','title_2_kr','title_3_kr',
+    'title_1_en','title_2_en','title_3_en',
+    'content_1_kr','content_2_kr','content_3_kr',
+    'content_1_en','content_2_en','content_3_en',]
+    success_url = reverse_lazy('daily_news-index')
 
 class PostDeleteView(DeleteView):
     model = Post

@@ -122,6 +122,7 @@ class PostUpdateView(UpdateView):
         'gd_cl', 'gd_ch',
         'bdi_cl', 'bdi_ch', 
     ]
+    success_url = reverse_lazy('daily_market-index')
 
 class PostDeleteView(DeleteView):
     model = Post

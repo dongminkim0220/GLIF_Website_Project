@@ -33,7 +33,9 @@
                         <tr>
                             <th scope="row">{{ post.id }}</th>
                             <td>
-                                <a href="/daily/market/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
+                                {{ post.title }}
+                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/update'"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/delete'"><i class="fas fa-trash-alt"></i></button>
                             </td>
 
                             <td>
