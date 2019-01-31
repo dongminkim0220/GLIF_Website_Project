@@ -3,6 +3,9 @@
         width: 100%;
         font-size: 1em;
     }
+    .masthead{
+        margin-top: 4.5rem;
+    }
 }
 .container {
     margin-top: 100px;
