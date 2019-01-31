@@ -1,5 +1,13 @@
 {% extends 'setups/base.html' %}
 
+{% block css %}
+<!-- Additional CSS Goes HERE -->
+{% load staticfiles %}
+<link href="https://fonts.googleapis.com/css?family=Charm|Nanum+Myeongjo" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'aboutus_introduction/css/intro.css' %}">
+{% endblock %}
+
 {% block body %}
 <div class = "container">
     <div class = "row">
@@ -14,7 +22,8 @@
         <!-- contents -->
         <div class = "col-md-9 text-md-left">
             <div>
-                <h1 class = "intro-title">About GLIF</h1>
+                <h1 class = "intro-title">About GLIF.</h1>
+                <hr>
                 <p>
                     GLIF (Global Leaders in Finance, 글리프) 는 성균관 대학교 글로벌 경제학과 최초의 금융학회입니다. GLIF는 글로벌 경제학과 학생들만을 대상으로 운영됩니다. GLIF의 설립 목적은 크게 두 가지 입니다. 첫 번째는 실무적 금융지식을 갖춘 Finance Expert를 양성하는 것 두 번째, 글로벌 경제학과 출신 금융인들의 Network의 장이 되는 것 입니다.
 
@@ -22,7 +31,8 @@
                 </p>
             </div>
             <div>
-                <h1 class = "intro-title">Curriculums</h1>
+                <h1 class = "intro-title">Curriculums.</h1>
+                <hr>
                 <p>
                     GLIF의 커리큘럼은 실무적 금융지식을 갖춘 준비된 Financial Expert를 양성하는데 초점을 맞추고 있습니다. 이에 따라 Main Session과 강연이라는 2가지 활동을 기반으로 다양한 활동을 기획, 수행하고 있습니다.
                 </p>
