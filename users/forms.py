@@ -36,7 +36,7 @@ class GliferEditForm(forms.ModelForm):
     class Meta:
         model = Glifer
         fields = '__all__'
-        exclude = ['user',]
+        exclude = ['user', 'is_authorized']
         
 
 class ApplicantEditForm(forms.ModelForm):

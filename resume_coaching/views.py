@@ -12,6 +12,15 @@ from django.utils.http import urlquote
 
 from users.models import Glifer, CustomUser
 
+# Auth
+from users.decorator import glifer_required
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+
+
+@login_required
+@glifer_required
 def download(request, pk):
     post = Post.objects.get(pk = pk)
     get_file_name = str(post.attached_file).replace("/", "\\")
@@ -24,7 +33,8 @@ def download(request, pk):
     print(response['Content-Disposition'])
     return response
 
-# Create your views here.
+
+@method_decorator([login_required, glifer_required], name='dispatch')
 class PostListView(ListView):
     model = Post
     template_name = 'resume_coaching/index.html'

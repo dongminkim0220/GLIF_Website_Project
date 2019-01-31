@@ -31,6 +31,7 @@ nth_CHOICES = (
 class Glifer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete = models.CASCADE, primary_key = True)
     is_mentor = models.BooleanField(default=False)
+    is_authorized = models.BooleanField(default = False)
     name_en = models.CharField(max_length = 250)
     name_kr = models.CharField(max_length = 250)
     birthdate = models.DateField(default = "2000-01-01")
