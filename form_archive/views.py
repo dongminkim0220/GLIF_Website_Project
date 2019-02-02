@@ -16,6 +16,7 @@ from users.models import Glifer, CustomUser
 from users.decorator import glifer_required
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 @login_required
 @glifer_required
@@ -58,12 +59,15 @@ class PostListView(ListView):
 
         return context
 
+@method_decorator([login_required, glifer_required], name='dispatch')
 class PostDetailView(DetailView):
     model = Post
     template_name = "form_archive/detail.html"
     context_object_name = "post"
 
-class PostCreateView(CreateView):
+
+@method_decorator([login_required, glifer_required], name='dispatch')
+class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "form_archive/new.html"
     fields = ['title', 'attached_file', 'content']
@@ -77,13 +81,26 @@ class PostCreateView(CreateView):
         post.save()
         return HttpResponseRedirect(self.get_success_url())
 
-class PostUpdateView(UpdateView):
+    def test_func(self):
+        return self.request.user.glifer.is_authorized
+
+@method_decorator([login_required, glifer_required], name='dispatch')
+class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "form_archive/update.html"
     fields = ['title', 'attached_file', 'content']
 
-class PostDeleteView(DeleteView):
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
+
+@method_decorator([login_required, glifer_required], name='dispatch')
+class PostDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "form_archive/delete.html"
     success_url = reverse_lazy('form_archive-index')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
     

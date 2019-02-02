@@ -16,7 +16,7 @@ from users.models import Glifer, CustomUser
 from users.decorator import glifer_required
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 @login_required
@@ -60,11 +60,19 @@ class PostListView(ListView):
 
         return context
 
-class PostDetailView(DetailView):
+@method_decorator([login_required, glifer_required], name='dispatch')
+class PostDetailView(UserPassesTestMixin, DetailView):
     model = Post
     template_name = "resume_coaching/detail.html"
     context_object_name = "post"
 
+    def test_func(self):
+        obj = self.get_object()
+        is_writer = obj.writer.user == self.request.user
+        is_mentor = self.request.user.glifer.is_mentor
+        return (is_writer | is_mentor)
+
+@method_decorator([login_required, glifer_required], name='dispatch')
 class PostCreateView(CreateView):
     model = Post
     template_name = "resume_coaching/new.html"
@@ -78,15 +86,27 @@ class PostCreateView(CreateView):
         post.writer = Glifer.objects.get(user=self.request.user)
         post.save()
         return HttpResponseRedirect(self.get_success_url())
-    success_url = reverse_lazy('resume_coaching-index')
 
+    def test_func(self):
+        return self.request.user.glifer.is_authorized
+
+@method_decorator([login_required, glifer_required], name='dispatch')
 class PostUpdateView(UpdateView):
     model = Post
     template_name = "resume_coaching/update.html"
     fields = ['title', 'attached_file', 'content']
 
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
+
+@method_decorator([login_required, glifer_required], name='dispatch')
 class PostDeleteView(DeleteView):
     model = Post
     template_name = "resume_coaching/delete.html"
     success_url = reverse_lazy('resume_coaching-index')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
     

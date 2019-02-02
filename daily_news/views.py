@@ -8,6 +8,10 @@ from easy_pdf.views import PDFTemplateView, PDFTemplateResponseMixin
 from users.models import Glifer, CustomUser
 from django.http import HttpResponseRedirect
 
+# Permissions
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
 class CreateReport(PDFTemplateResponseMixin, DetailView):
     template_name = 'daily_news/pdf_template.html'
     model = Post
@@ -55,12 +59,7 @@ class PostListView(ListView):
 
         return context
 
-class PostDetailView(DetailView):
-    model = Post
-    template_name = "daily_news/detail.html"
-    context_object_name = "post"
-
-class PostCreateView(CreateView):
+class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "daily_news/new.html"
     fields = ['title', 'news_type', 
@@ -78,7 +77,11 @@ class PostCreateView(CreateView):
         post.save()
         return HttpResponseRedirect(self.get_success_url())
 
-class PostUpdateView(UpdateView):
+    def test_func(self):
+        print(self.request.user)
+        return self.request.user.glifer.is_authorized
+
+class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "daily_news/update.html"
     fields = ['title', 'news_type', 
@@ -88,8 +91,15 @@ class PostUpdateView(UpdateView):
     'content_1_en','content_2_en','content_3_en',]
     success_url = reverse_lazy('daily_news-index')
 
-class PostDeleteView(DeleteView):
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "daily_news/delete.html"
     success_url = reverse_lazy('daily_news-index')
     
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user

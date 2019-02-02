@@ -34,8 +34,10 @@
                             <th scope="row">{{ post.id }}</th>
                             <td>
                                 {{ post.title }}
-                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/update'"><i class="far fa-edit"></i></button>
-                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/delete'"><i class="fas fa-trash-alt"></i></button>
+                                {% if request.user == post.writer.user %}
+                                    <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/update'"><i class="far fa-edit"></i></button>
+                                    <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/daily/market/{{post.pk}}/delete'"><i class="fas fa-trash-alt"></i></button>
+                                {% endif %}
                             </td>
 
                             <td>
@@ -88,7 +90,9 @@
             </nav>
         
             <div class = "row align-items-center justify-content-center">
-                <button type="button" class="btn btn-outline-dark dailybtn" onclick="location.href = '/daily/market/new'">Add Daily</button>
+                {% if request.user.glifer.is_authorized %}
+                    <button type="button" class="btn btn-outline-dark dailybtn" onclick="location.href = '/daily/market/new'">Add Daily</button>
+                {% endif %}
                 <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#schedule">
                         Check Schedule
                 </button>

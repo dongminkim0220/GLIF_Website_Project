@@ -24,6 +24,10 @@
                         <th scope="row">{{ post.id }}</th>
                         <td>
                             <a href="/announcement/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
+                            {% if request.user == post.writer.user %}
+                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/announcement/{{post.pk}}/update'"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/announcement/{{post.pk}}/delete'"><i class="fas fa-trash-alt"></i></button>
+                            {% endif %}
                         </td>
 
                         {% if post.attached_file != '' %}
@@ -77,10 +81,11 @@
             {% endif %}
         </ul>
     </nav>
-
-    <div class = "row align-items-center justify-content-center">
-        <button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/new'">글쓰기</button>
-    </div>
+    {% if request.user.glifer.is_authorized %}
+        <div class = "row align-items-center justify-content-center">
+            <button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/new'">글쓰기</button>
+        </div>
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -11,6 +11,10 @@ from easy_pdf.views import PDFTemplateView, PDFTemplateResponseMixin
 from users.models import Glifer, CustomUser
 from django.http import HttpResponseRedirect
 
+# Permissions
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
 class CreateReport(PDFTemplateResponseMixin, DetailView):
     template_name = 'daily_market/pdf_template.html'
     model = Post
@@ -61,7 +65,7 @@ class PostDetailView(DetailView):
     template_name = "daily_market/detail.html"
     context_object_name = "post"
 
-class PostCreateView(CreateView):
+class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "daily_market/new.html"
     fields = [
@@ -95,8 +99,12 @@ class PostCreateView(CreateView):
         post.writer = Glifer.objects.get(user=self.request.user)
         post.save()
         return HttpResponseRedirect(self.get_success_url())
+    
+    def test_func(self):
+        print(self.request.user)
+        return self.request.user.glifer.is_authorized
         
-class PostUpdateView(UpdateView):
+class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "daily_market/update.html"
     fields = [
@@ -124,8 +132,16 @@ class PostUpdateView(UpdateView):
     ]
     success_url = reverse_lazy('daily_market-index')
 
-class PostDeleteView(DeleteView):
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "daily_market/delete.html"
     success_url = reverse_lazy('daily_market-index')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
     

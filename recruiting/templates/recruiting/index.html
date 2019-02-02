@@ -9,10 +9,10 @@
         <p class="lead">2019 상반기 Recruiting</p>
         <hr class="my-4">
         <p>성균관대학교 글로벌경제학과 금융학회 GLIF가 신입부원을 모집합니다.</p>
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and user.is_applicant %}
             <a class="btn btn-dark btn-lg" href="/accounts/applicant/userinfo/{{ user.applicant.pk }}">Go To Application Form</a>
         {% else %}
-            <a class="btn btn-dark btn-lg" href="{% url 'login' %}" >Login</a>
+            <a class="btn btn-dark btn-lg" href="#" onclick = "alertNoPermission()">Go To Application Form</a>
         {% endif %}
     </div>
 </div>
@@ -41,5 +41,13 @@
     </div>
     </div>
 </div>
+
+{% block js %}
+
+{% load static %}
+
+<script src="{% static 'recruiting/js/recruiting.js'%}"></script>
+
+{% endblock %}
 
 {% endblock %}

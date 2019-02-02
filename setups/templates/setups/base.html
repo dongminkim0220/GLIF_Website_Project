@@ -77,25 +77,45 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/recruiting">Recruiting <span class="sr-only">(current)</span></a>
             </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
                     GLIFERS-Only
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/gliferonly/form_archive">Form Archive</a>
-                    <a class="dropdown-item" href="/gliferonly/resume_coaching">Resume Coaching</a>
-                </div>
+                {% if request.user.glifer.is_authorized %}
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/gliferonly/form_archive">Form Archive</a>
+                        <a class="dropdown-item" href="/gliferonly/resume_coaching">Resume Coaching</a>
+                    </div>
+                {% else %}
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" onclick = "alertNoPermission()">Form Archive</a>
+                        <a class="dropdown-item" href="#" onclick = "alertNoPermission()">Resume Coaching</a>
+                    </div>
+                {% endif %}
             </li>
+
+
         </ul>
 
         {% if user.is_authenticated %}
-            <ul class="nav navbar-nav navbar-right">
-                <li class = "authentification greeting">
-                    Hello, {{ user.glifer.name_en }}! 
-                </li>
-                <li class = "authentification"> <a class = "auth-link" href="/accounts/glifer/userinfo/{{ user.pk }}">Info</a> </li>
-                <li class = "authentification"> <a class = "auth-link" href="{% url 'logout' %}">Logout</a> </li>
-            </ul>
+            {% if user.is_glifer %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class = "authentification greeting">
+                        Hello, {{ user.glifer.name_en }}! 
+                    </li>
+                    <li class = "authentification"> <a class = "auth-link" href="/accounts/glifer/userinfo/{{ user.pk }}">Info</a> </li>
+                    <li class = "authentification"> <a class = "auth-link" href="{% url 'logout' %}">Logout</a> </li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class = "authentification greeting">
+                        Hello, {{ user.username }}! 
+                    </li>
+                    <li class = "authentification"> <a class = "auth-link" href="{% url 'logout' %}">Logout</a> </li>
+                </ul>
+            {% endif %} 
+            
         {% else %}
             <ul class="nav navbar-nav navbar-right">
                 <li class = "authentification"> <a class = "auth-link" href="{% url 'login' %}">Login</a> </li>
@@ -133,7 +153,7 @@
             </button>
             </div>
             <div class="modal-body">
-                <p> E-mail: ehdals56@naver.com </p>
+                <p> E-mail: dongmin.kim.0220@gmail.com </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
@@ -167,6 +187,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    {% load static %}
+    <script src="{% static 'setups/js/setups.js' %}"></script>
     
 
     

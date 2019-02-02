@@ -10,8 +10,10 @@ from django.conf import settings
 from django.http import HttpResponse, FileResponse, HttpResponseRedirect
 from django.utils.http import urlquote
 
-from users.models import Glifer, CustomUser
 
+# Permissions
+from users.models import Glifer, CustomUser
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 def download(request, pk):
     post = Post.objects.get(pk = pk)
@@ -53,12 +55,14 @@ class PostListView(ListView):
 
         return context
 
+
 class PostDetailView(DetailView):
     model = Post
     template_name = "announcement/detail.html"
     context_object_name = "post"
 
-class PostCreateView(CreateView):
+
+class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "announcement/new.html"
     fields = ['title', 'attached_file', 'content']
@@ -72,13 +76,25 @@ class PostCreateView(CreateView):
         post.save()
         return HttpResponseRedirect(self.get_success_url())
 
-class PostUpdateView(UpdateView):
+    def test_func(self):
+        print(self.request.user)
+        return self.request.user.glifer.is_authorized
+
+class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "announcement/update.html"
     fields = ['title', 'attached_file', 'content']
 
-class PostDeleteView(DeleteView):
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "announcement/delete.html"
     success_url = reverse_lazy('announcement-index')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
     

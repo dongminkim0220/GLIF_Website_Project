@@ -10,7 +10,9 @@ from django.conf import settings
 from django.http import HttpResponse, FileResponse, HttpResponseRedirect
 from django.utils.http import urlquote
 
+# Permissions
 from users.models import Glifer, CustomUser
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 def download(request, pk):
     post = Post.objects.get(pk = pk)
@@ -55,7 +57,7 @@ class PostDetailView(DetailView):
     template_name = "indepth/detail.html"
     context_object_name = "post"
 
-class PostCreateView(CreateView):
+class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "indepth/new.html"
     fields = ['title', 'attached_file', 'content']
@@ -69,13 +71,24 @@ class PostCreateView(CreateView):
         post.save()
         return HttpResponseRedirect(self.get_success_url())
 
-class PostUpdateView(UpdateView):
+    def test_func(self):
+        return self.request.user.glifer.is_authorized
+
+class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "indepth/update.html"
     fields = ['title', 'attached_file', 'content']
 
-class PostDeleteView(DeleteView):
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "indepth/delete.html"
     success_url = reverse_lazy('indepth-index')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.writer.user == self.request.user
     

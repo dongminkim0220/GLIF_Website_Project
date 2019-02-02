@@ -12,9 +12,5 @@
         <div>
             {{ post.content | safe }}
         </div>
-        <div class = "row align-items-center justify-content-center">
-            <button type="button" class="btn btn-outline-dark" onclick="location.href = '/form_archive/{{post.pk}}/update'">update</button>
-            <button type="button" class="btn btn-outline-dark" onclick="location.href = '/form_archive/{{post.pk}}/delete'">delete</button>
-        </div>
     </div>
 {% endblock %}
