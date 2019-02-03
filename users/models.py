@@ -16,6 +16,7 @@ class CustomUser(AbstractUser):
     
 # Glifer Model
 ## Setup
+
 glif_OB = 'OB'
 glif_1st = '1기'
 glif_2nd = '2기'
@@ -29,6 +30,12 @@ nth_CHOICES = (
     (glif_4th, '4기'),
 )
 
+class Nth(models.Model):
+    nth = models.CharField(max_length = 10)
+
+    def __str__(self):
+        return self.nth
+
 ## Model
 class Glifer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete = models.CASCADE, primary_key = True)
@@ -41,13 +48,10 @@ class Glifer(models.Model):
     work_at = models.CharField(max_length = 250, blank = True)
     self_intro = models.TextField(max_length = 1000)
     profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/', default = '/users/man-user.png')
-    nth = models.CharField(
-        max_length=2,
-        choices=nth_CHOICES,
-        default=glif_4th,
-    )
+    nth = models.OneToOneField(Nth, on_delete = models.CASCADE,primary_key = False, null = True, blank = True)
+
     def __str__(self):
-        return self.nth + " " + self.name_kr
+        return str(self.nth.nth) + " " + self.name_kr
     
 
 # Applicant Model

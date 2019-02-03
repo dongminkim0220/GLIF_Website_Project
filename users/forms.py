@@ -5,7 +5,6 @@ from .models import CustomUser, Glifer, Applicant, Subject
 from django.db import transaction
 
 class GliferSignUpForm(UserCreationForm):
-    # email = forms.EmailField(max_length = 250)
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
@@ -16,7 +15,6 @@ class GliferSignUpForm(UserCreationForm):
     def save(self):
         user = super().save(commit=False)
         user.is_glifer = True
-        # user.email.add(*self.cleaned_data.get('email'))
         user.save()
         glifer = Glifer.objects.create(user=user)
         return user
@@ -40,6 +38,18 @@ class GliferEditForm(forms.ModelForm):
         model = Glifer
         fields = '__all__'
         exclude = ['user', 'is_authorized']
+
+        labels = {
+            "name_kr" : "한글 성명",
+            "name_en" : "영문 성명",
+            "birthdate" : "생일",
+            "phonenumber": "전화번호",
+            "nth": "기수",
+            "work_at": "직장 혹은 인턴(재학생의 경우, 적지 않으셔도 무방합니다.)",
+            "is_mentor": "멘토입니다.",
+            "profile_img": "프로필 사진 업로드(업로드 하지 않을 경우, 기본 사진으로 설정됩니다.)",
+            "self_intro": "자기소개(홈페이지 메인화면에 업로드 됩니다.)",
+        }
         
 
 class ApplicantEditForm(forms.ModelForm):

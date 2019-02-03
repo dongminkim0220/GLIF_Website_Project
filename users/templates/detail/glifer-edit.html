@@ -1,20 +1,52 @@
 {% extends 'setups/base.html' %}
 
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/css/edit.css' %}">
+{% endblock %}
 {% block body %}
     <div class = "container">
         {% load crispy_forms_tags %}
-        <p class = "lead">GLIFer user information</p>
+        <p class = "lead">User Information</p>
         <hr>
-        <div class = "row">
-            <div>
-                <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{form|crispy}}
-                    <button type="submit" class="btn-dark">Edit!</button>
-                </form>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <br>
+            <p><i class="far fa-user"></i> Personal Information</p>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.name_kr|as_crispy_field }}
+                    {{ form.birthdate|as_crispy_field }}
+                    {{ form.nth|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.name_en|as_crispy_field }}
+                    {{ form.phonenumber|as_crispy_field }}
+                    {{ form.work_at|as_crispy_field }}
+                </div>
             </div>
-            
-        </div>
+            <br>
+                <p><i class="fas fa-globe-europe"></i>  Additional Information</p>
+            <hr>
+            <div>멘토이신가요? 멘토이신 경우, 자기소개 글 등에 접근 권한이 생깁니다.
+            {{ form.is_mentor|as_crispy_field }}
+            </div>
+            {{ form.profile_img|as_crispy_field }}
+
+            <br>
+                <p><i class="fas fa-pencil-alt"></i> Self-introduction</p>
+            <hr>
+            {{ form.self_intro|as_crispy_field }}
+
+            <br>
+                <p><i class="far fa-sticky-note"></i> Notice</p>
+            <hr>
+            <p>관리자 승인 이후에, 권한이 부여됩니다.</p>            
+            <div class = "row align-items-center justify-content-center">
+                <button type="submit" class="btn btn-lg btn-dark ">Save!</button>
+            </div>
+        </form>
     </div>
     
 {% endblock %}
