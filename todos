@@ -72,15 +72,15 @@ Login, Logout, GLIFER ONLY
 [Wrap Up]
 1. index page design V
 2. css container border V
-
 3. pagination color blue-> black change V
+6. sidebar bottom margin V
+8. aboutus fix V
+
 4. news clipping css
 5. market css
 
-6. sidebar bottom margin
 7. applicant css design
-8. table media query: display none for date
-
 9. deploy
 10. s3 cloud storage link
-<Wrapup-todo: 1 tasks>
+
+<Wrapup-todo: 10 tasks>
