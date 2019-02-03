@@ -1,5 +1,13 @@
 {% extends 'setups/base.html' %}
 
+{% block css %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'aboutus_glifers/css/index.css' %}">
+
+{% endblock %}
+
 {% block body %}
 <div class = "container">
     <div class = "row">
@@ -16,8 +24,8 @@
             <!-- mini nav-bar -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/aboutus/glifers/OB">OB</a></li>
-                    <li class="breadcrumb-item"><a href="/aboutus/glifers/1기">1기</a></li>
+                    <li class="breadcrumb-item active"><a href="/aboutus/glifers/OB">OB</a></li>
+                    <li class="breadcrumb-item" onclick = "activeThis(this)"><a href="/aboutus/glifers/1기">1기</a></li>
                     <li class="breadcrumb-item"><a href="/aboutus/glifers/2기">2기</a></li>
                     <li class="breadcrumb-item"><a href="/aboutus/glifers/3기">3기</a></li>
                     <li class="breadcrumb-item"><a href="/aboutus/glifers/4기">4기</a></li>
@@ -30,7 +38,12 @@
                     <li class="media">
                         <img src="{{ glifer.profile_img.url }}" class="align-self-start mr-3 profile-img" alt="...">
                         <div class="media-body">
-                        <h5 class="mt-0 mb-1">{{ glifer.name_kr }} / {{ glifer.name_en }} / {{ glifer.work_at }}</h5>
+                        <h5 class="mt-0 mb-1">{{ glifer.name_kr }} / {{ glifer.name_en }} 
+                            {% if glifer.work_at != '' %}
+                                / {{ glifer.work_at }}</h5>
+                            {% else %}
+                                </h5>
+                            {% endif %}
                         {{ glifer.self_intro }}
                         </div>
                     </li>
@@ -42,12 +55,12 @@
     </div>
 </div>
 
-    {% block js %}
+{% block js %}
 
-    {% load staticfiles %}
-    <script src="{% static 'aboutus_glifers/js/index.js' %}"></script>
+{% load staticfiles %}
+<script src="{% static 'aboutus_glifers/js/index.js' %}"></script>
 
-    {% endblock %}
+{% endblock %}
 
 {% endblock %}
 

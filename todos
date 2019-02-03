@@ -61,8 +61,8 @@ Login, Logout, GLIFER ONLY
 20. pdf file reportlab - dailymarket V
 31. ckeditor setting fix V
 32. auth/ authorization V
+33. password-reset V
 
-33. password-reset
 34. error handling(middleware)
 35. Resume Coaching Comment
 
@@ -73,7 +73,7 @@ Login, Logout, GLIFER ONLY
 1. index page design V
 2. css container border V
 
-3. pagination color blue-> black change
+3. pagination color blue-> black change V
 4. news clipping css
 5. market css
 
@@ -81,6 +81,6 @@ Login, Logout, GLIFER ONLY
 7. applicant css design
 8. table media query: display none for date
 
-9. digital ocean deploy
+9. deploy
 10. s3 cloud storage link
 <Wrapup-todo: 1 tasks>

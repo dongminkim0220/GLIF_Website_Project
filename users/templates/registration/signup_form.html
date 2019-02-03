@@ -11,20 +11,13 @@
         <!-- CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'setups/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'setups/css/login.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'setups/css/auth.css' %}">
 
         <!-- fonts -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 
         <!-- font awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" href="{% static 'setups/favicons/Oxygen-Icons.org-Oxygen-Actions-rating.ico' %}">
@@ -50,10 +43,26 @@
                             		<p>회원가입후, 추가 정보를 기재해 주세요.</p>
                         		</div>
                             </div>
+                            
                             <div data-spy = "scroll" class="form-bottom">
 			                    <form role="form" action="" method="POST" class="signup-form">
                                     {% csrf_token %}
-                                    {{form.as_p}}
+                                    <div class = "signup-form-contents">
+                                        <label for="{{ form.username.id_for_label }}">사용자 이름: </label>
+                                        {{ form.username }}
+                                    </div>
+                                    <div class = "signup-form-contents">
+                                        <label for="{{ form.email.id_for_label }}">E-mail: </label>
+                                        {{ form.email }}
+                                    </div>
+                                    <div class = "signup-form-contents">
+                                        <label for="{{ form.password1.id_for_label }}">비밀번호: </label>
+                                        {{ form.password1 }}
+                                    </div>
+                                    <div class = "signup-form-contents">
+                                        <label for="{{ form.password2.id_for_label }}">비밀번호 확인: </label>
+                                        {{ form.password2 }}
+                                    </div>
 			                        <button type="submit" class="btn">Sign UP!</button>
 			                    </form>
 		                    </div>

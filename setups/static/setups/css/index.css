@@ -6,6 +6,9 @@
     .masthead{
         margin-top: 4.5rem;
     }
+    .col-md-3 {
+        margin-bottom: 4.5rem;
+    }
 }
 .container {
     margin-top: 100px;
@@ -53,7 +56,12 @@ div.col-md-8.col-sm-8.col-xs-12 {
 
 
 /* pagination */
+.pagination.justify-content-center>li.active>a {
+    background: #d6d3e2;
+    color: #fff;
+  }
 
-.page-item.active {
-    background-color: gold;
+/* breadcrumb */
+.breadcrumb>li.breadcrumb-item>a {
+    color : black
 }
