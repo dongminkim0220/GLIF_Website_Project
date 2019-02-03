@@ -8,6 +8,8 @@ class CustomUser(AbstractUser):
     # user type init
     is_glifer = models.BooleanField(default=False)
     is_applicant = models.BooleanField(default=False)
+
+    email= models.EmailField(max_length = 250)
     
     def __str__(self):
         return self.username
@@ -36,7 +38,6 @@ class Glifer(models.Model):
     name_kr = models.CharField(max_length = 250)
     birthdate = models.DateField(default = "2000-01-01")
     phonenumber = models.CharField(max_length = 250)
-    email= models.EmailField(max_length = 250)
     work_at = models.CharField(max_length = 250, blank = True)
     self_intro = models.TextField(max_length = 1000)
     profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/', default = '/users/man-user.png')
@@ -48,13 +49,6 @@ class Glifer(models.Model):
     def __str__(self):
         return self.nth + " " + self.name_kr
     
-    # @property
-    # def default_profile_img(self):
-    #     if self.profile_picture:
-    #         return "%s/%s" %(settings.MEDIA_URL, self.profile_picture)
-    #     else:
-    #         return settings.STATIC_URL + 'users/man-user.png'
-
 
 # Applicant Model
 
@@ -113,7 +107,6 @@ class Applicant(models.Model):
     name_kr = models.CharField(max_length = 250, blank = True)
     phonenumber = models.CharField(max_length = 250, blank = True)
     birthdate = models.DateField(null = True, blank = True)
-    email= models.EmailField(max_length = 250, blank = True)
     
     # Academic Info
     stu_id = models.CharField(max_length = 50, blank = True)

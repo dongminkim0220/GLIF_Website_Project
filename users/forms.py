@@ -5,15 +5,18 @@ from .models import CustomUser, Glifer, Applicant, Subject
 from django.db import transaction
 
 class GliferSignUpForm(UserCreationForm):
-    # test = forms.CharField()
+    # email = forms.EmailField(max_length = 250)
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
+        fields = ['username', 'email']
+
 
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)
         user.is_glifer = True
+        # user.email.add(*self.cleaned_data.get('email'))
         user.save()
         glifer = Glifer.objects.create(user=user)
         return user
@@ -22,8 +25,8 @@ class ApplicantSignUpForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
+        fields = ['username', 'email']
         
-
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)

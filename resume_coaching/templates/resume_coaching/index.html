@@ -23,7 +23,9 @@
                     <tr>
                         <th scope="row">{{ post.id }}</th>
                         <td>
+                            
                             <a href="/gliferonly/resume_coaching/{{post.pk}}" style = "color:black"> {{ post.title }} </a>
+
                             {% if request.user == post.writer.user %}
                                 <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/gliferonly/resume_coaching/{{post.pk}}/update'"><i class="far fa-edit"></i></button>
                                 <button type="button" class="btn btn-outline-dark btn-download" onclick="location.href = '/gliferonly/resume_coaching/{{post.pk}}/delete'"><i class="fas fa-trash-alt"></i></button>
@@ -86,5 +88,12 @@
         <button type="button" class="btn btn-outline-dark" onclick="location.href = '/gliferonly/resume_coaching/new'">글쓰기</button>
     </div>
 </div>
+
+{% block js %}
+{% load static %}
+
+<script src="{% static 'resume_coaching/js/resume.js' %}"></script>
+
+{% endblock %}
 
 {% endblock %}

@@ -11,15 +11,13 @@ urlpatterns = [
 
     # Auth setups
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
-    path('users/', include('django.contrib.auth.urls')),
-
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', TemplateView.as_view(template_name="signup.html"), name='signup'),
     path('accounts/signup/glifer/', glifers.GliferSignUpView.as_view(), name='glifer_signup'),
     path('accounts/signup/applicant/', applicants.ApplicantSignUpView.as_view(), name='applicant_signup'),
     path('accounts/glifer/userinfo/<int:pk>', glifers.GliferEditView.as_view(), name = 'glifer_edit'),
     path('accounts/applicant/userinfo/<int:pk>', applicants.ApplicantEditView.as_view(), name = 'applicant_edit'),
+
     
 
     # Links setups

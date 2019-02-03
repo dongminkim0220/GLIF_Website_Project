@@ -166,3 +166,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# Emails
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'sitemanage.glif@gmail.com'
+EMAIL_HOST_PASSWORD = 'glifadmin1234'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'GLIF Admin Team <sitemanage.glif@gmail.com>'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

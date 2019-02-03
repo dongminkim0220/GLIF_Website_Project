@@ -58,10 +58,13 @@ Login, Logout, GLIFER ONLY
 28. overall refactoring - Form V
 29. overall refactoring - Resume V
 19. daily market - form 1 V
+20. pdf file reportlab - dailymarket V
 31. ckeditor setting fix V
+32. auth/ authorization V
 
-
-20. pdf file reportlab - dailymarket
+33. password-reset
+34. error handling(middleware)
+35. Resume Coaching Comment
 
 
 <backend-todo: 29 tasks>
@@ -70,4 +73,14 @@ Login, Logout, GLIFER ONLY
 1. index page design V
 2. css container border V
 
+3. pagination color blue-> black change
+4. news clipping css
+5. market css
+
+6. sidebar bottom margin
+7. applicant css design
+8. table media query: display none for date
+
+9. digital ocean deploy
+10. s3 cloud storage link
 <Wrapup-todo: 1 tasks>
