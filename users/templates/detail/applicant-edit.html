@@ -2,18 +2,56 @@
 
 {% block body %}
     <div class = "container">
-        <p class = "lead">Applicant information</p>
+        {% load crispy_forms_tags %}
+        <p class = "lead">Applicant Information of 
+            <strong>{{user.username}}</strong></p>
         <hr>
-        <div class = "row">
-            <div>
-                <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    <button type="submit" class="btn-dark">Edit!</button>
-                </form>
+        <form action="" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <br>
+            <p><i class="far fa-user"></i> Personal Information</p>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.name_kr|as_crispy_field }}
+                    {{ form.birthdate|as_crispy_field }}
+                    {{ form.schyr|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.stu_id|as_crispy_field }}
+                    {{ form.phonenumber|as_crispy_field }}
+                    {{ form.grad|as_crispy_field }}
+                </div>
             </div>
             
-        </div>
+            <br>
+
+            <p><i class="fas fa-globe-europe"></i> Extracurricular Activities/Others</p>
+            <hr>
+            {{ form.extra|as_crispy_field }}
+            {{ form.testprep|as_crispy_field }}
+            {{ form.millitary|as_crispy_field }}
+            {{ form.willyou|as_crispy_field }}
+            <div class="row">
+                <div class="col-6">
+                 {{ form.havetaken_courses|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                 {{ form.willtake_courses|as_crispy_field }}
+                </div>
+            </div>
+
+            <br>
+            <p><i class="fas fa-pencil-alt"></i> Essay Questions</p>
+            <hr>
+            {{ form.glifmotive|as_crispy_field }}
+            {{ form.futureplan|as_crispy_field }}
+            
+            <br>
+            <div class = "row align-items-center justify-content-center">
+                <button type="submit" class="btn btn-lg btn-dark ">Save!</button>
+            </div>
+        </form>
     </div>
     
 {% endblock %}

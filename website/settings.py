@@ -70,7 +70,12 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'easy_pdf',
+
+    # styling
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

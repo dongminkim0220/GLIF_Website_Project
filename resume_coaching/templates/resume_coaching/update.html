@@ -2,12 +2,13 @@
 
 {% block body %}
     <div class = "container">
-        <h1>Create Post</h1>
+        <h1>Update Post</h1>
+        {% load crispy_forms_tags %}
         <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
             {% csrf_token %}
         
             {{ form.media }}
-            {{ form.as_p }}
+            {{ form|crispy }}
             
             <div class="form-group">
                 <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>

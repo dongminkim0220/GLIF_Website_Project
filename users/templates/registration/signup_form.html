@@ -45,24 +45,10 @@
                             </div>
                             
                             <div data-spy = "scroll" class="form-bottom">
+                                {% load crispy_forms_tags %}
 			                    <form role="form" action="" method="POST" class="signup-form">
                                     {% csrf_token %}
-                                    <div class = "signup-form-contents">
-                                        <label for="{{ form.username.id_for_label }}">사용자 이름: </label>
-                                        {{ form.username }}
-                                    </div>
-                                    <div class = "signup-form-contents">
-                                        <label for="{{ form.email.id_for_label }}">E-mail: </label>
-                                        {{ form.email }}
-                                    </div>
-                                    <div class = "signup-form-contents">
-                                        <label for="{{ form.password1.id_for_label }}">비밀번호: </label>
-                                        {{ form.password1 }}
-                                    </div>
-                                    <div class = "signup-form-contents">
-                                        <label for="{{ form.password2.id_for_label }}">비밀번호 확인: </label>
-                                        {{ form.password2 }}
-                                    </div>
+                                    {{ form|crispy }}
 			                        <button type="submit" class="btn">Sign UP!</button>
 			                    </form>
 		                    </div>
