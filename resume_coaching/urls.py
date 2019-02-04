@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/update', PostUpdateView.as_view(), name = "resume_coaching-update"),
     path('<int:pk>/delete', PostDeleteView.as_view(), name = "resume_coaching-delete"),
     path('<int:pk>/download', views.download),
+    path('<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]

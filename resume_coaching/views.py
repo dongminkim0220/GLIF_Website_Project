@@ -18,6 +18,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import UserPassesTestMixin
 
+from .forms import PostForm, CommentForm
+from django.shortcuts import get_object_or_404
+
+
 
 @login_required
 @glifer_required
@@ -65,12 +69,31 @@ class PostDetailView(UserPassesTestMixin, DetailView):
     model = Post
     template_name = "resume_coaching/detail.html"
     context_object_name = "post"
+    form_class = PostForm
 
     def test_func(self):
         obj = self.get_object()
         is_writer = obj.writer.user == self.request.user
         is_mentor = self.request.user.glifer.is_mentor
         return (is_writer | is_mentor)
+
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    print(pk)
+    print(post)
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'resume_coaching/detail.html', {'form': form})
+
 
 @method_decorator([login_required, glifer_required], name='dispatch')
 class PostCreateView(CreateView):

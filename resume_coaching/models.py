@@ -3,6 +3,7 @@ from users.models import Glifer
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils import timezone
 
 # Create your models here.
 class Post(models.Model):
@@ -17,3 +18,16 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('resume_coaching-detail', kwargs = {'pk': self.pk})
+
+class Comment(models.Model):
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
