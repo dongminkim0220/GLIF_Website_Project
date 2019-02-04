@@ -13,13 +13,10 @@
 
 <header class="masthead">
     <div class = "main-contents-top">
-        {% if request.user_agent.is_mobile %}
-            <img src="../static/setups/images/mobile-main.jpg" alt="" srcset="">
-        {% else %}
-            <video width = "100%" autoplay loop poster="../static/setups/images/backup.jpg" id="bgvid">
-                <source src="../static/setups/video/main.mp4" type="video/mp4">
-            </video>
-        {% endif %}
+        
+        <video width = "100%" autoplay loop poster="../static/setups/images/backup.jpg" id="bgvid">
+            <source src="../static/setups/video/main.mp4" type="video/mp4">
+        </video>
         
     </div>
     <div class="bg-circle-1 bg-circle"></div>

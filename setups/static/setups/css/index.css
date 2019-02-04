@@ -4,15 +4,14 @@
         font-size: 1em;
     }
     .masthead{
-        margin-top: 4.5rem;
+        display: none;
     }
     .col-md-3 {
         margin-bottom: 4.5rem;
     }
 
     div.container.mainpage-item {
-        margin-top : 1.0rem;
-        margin-bottom : 1.0rem;
+        margin-top : 4.5rem;
     }
 
 }
