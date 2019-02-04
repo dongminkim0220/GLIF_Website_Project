@@ -92,7 +92,7 @@ def add_comment_to_post(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'resume_coaching/detail.html', {'form': form})
+    return render(request, 'resume_coaching/add_comment_to_post.html', {'form': form})
 
 
 @method_decorator([login_required, glifer_required], name='dispatch')
