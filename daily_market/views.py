@@ -14,6 +14,7 @@ from django.http import HttpResponseRedirect
 # Permissions
 from django.contrib.auth.mixins import UserPassesTestMixin
 
+from .forms import PostForm
 
 class CreateReport(PDFTemplateResponseMixin, DetailView):
     template_name = 'daily_market/pdf_template.html'
@@ -68,68 +69,24 @@ class PostDetailView(DetailView):
 class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "daily_market/new.html"
-    fields = [
-        'title',
-        'e_u_cl', 'e_u_ch',
-        'u_k_cl', 'u_k_ch',
-        'fed_cl', 'fed_ch',
-        'spread_cl', 'spread_ch',
-        'usyr2_cl', 'usyr2_ch',
-        'usyr10_cl', 'usyr10_ch',
-        'bok_cl', 'bok_ch',
-        'kryr3_cl', 'kryr3_ch',
-        'kryr10_cl', 'kryr10_ch',
-        'dj_cl', 'dj_ch',
-        'sp_cl', 'sp_ch',
-        'nas_cl', 'nas_ch',
-        'ksp_cl', 'ksp_ch',
-        'nik_cl', 'nik_ch',
-        'hk_cl', 'hk_ch',
-        'bco_cl', 'bco_ch',
-        'wti_cl', 'wti_ch',
-        'gd_cl', 'gd_ch',
-        'bdi_cl', 'bdi_ch', 
-    ]
+    form_class = PostForm
 
     def get_success_url(self):
         return reverse_lazy('daily_market-index')
 
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.writer = Glifer.objects.get(user=self.request.user)
+        post.writer = Glifer.objects.get(user=self.request.user.glifer)
         post.save()
         return HttpResponseRedirect(self.get_success_url())
     
     def test_func(self):
-        print(self.request.user)
         return self.request.user.glifer.is_authorized
         
 class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "daily_market/update.html"
-    fields = [
-        'title',
-        'e_u_cl', 'e_u_ch',
-        'u_k_cl', 'u_k_ch',
-        'fed_cl', 'fed_ch',
-        'spread_cl', 'spread_ch',
-        'usyr2_cl', 'usyr2_ch',
-        'usyr10_cl', 'usyr10_ch',
-        'bok_cl', 'bok_ch',
-        'kryr3_cl', 'kryr3_ch',
-        'kryr10_cl', 'kryr10_ch',
-        'dj_cl', 'dj_ch',
-        'sp_cl', 'sp_ch',
-        'nas_cl', 'nas_ch',
-        'ksp_cl', 'ksp_ch',
-        'ksd_cl', 'ksd_ch',
-        'nik_cl', 'nik_ch',
-        'hk_cl', 'hk_ch',
-        'bco_cl', 'bco_ch',
-        'wti_cl', 'wti_ch',
-        'gd_cl', 'gd_ch',
-        'bdi_cl', 'bdi_ch', 
-    ]
+    form_class = PostForm
     success_url = reverse_lazy('daily_market-index')
 
     def test_func(self):

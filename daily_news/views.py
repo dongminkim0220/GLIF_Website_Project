@@ -7,6 +7,7 @@ from easy_pdf.views import PDFTemplateView, PDFTemplateResponseMixin
 
 from users.models import Glifer, CustomUser
 from django.http import HttpResponseRedirect
+from .forms import PostForm
 
 # Permissions
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -62,11 +63,7 @@ class PostListView(ListView):
 class PostCreateView(UserPassesTestMixin, CreateView):
     model = Post
     template_name = "daily_news/new.html"
-    fields = ['title', 'news_type', 
-    'title_1_kr','title_2_kr','title_3_kr',
-    'title_1_en','title_2_en','title_3_en',
-    'content_1_kr','content_2_kr','content_3_kr',
-    'content_1_en','content_2_en','content_3_en',]
+    form_class = PostForm
 
     def get_success_url(self):
         return reverse_lazy('daily_news-index')
@@ -84,11 +81,7 @@ class PostCreateView(UserPassesTestMixin, CreateView):
 class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "daily_news/update.html"
-    fields = ['title', 'news_type', 
-    'title_1_kr','title_2_kr','title_3_kr',
-    'title_1_en','title_2_en','title_3_en',
-    'content_1_kr','content_2_kr','content_3_kr',
-    'content_1_en','content_2_en','content_3_en',]
+    form_class = PostForm
     success_url = reverse_lazy('daily_news-index')
 
     def test_func(self):

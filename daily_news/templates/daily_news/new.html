@@ -4,71 +4,59 @@
 
 <div class="container">
     <h1>Global News Clipping</h1>
+    <hr>
     
     <form action="" method="POST">
         {% csrf_token %}
-        <div class = "form-group">
-            <div>
-                <label for="{{ form.title.id_for_label }}">Title: </label>
-                {{ form.title }}
+        {% load crispy_forms_tags %}
+        {{ form.title|as_crispy_field }}
+        {{ form.news_type|as_crispy_field }}
+        <hr>
+
+        <div class="row">
+            <div class="col-6">
+                <p class = "lead">English</p>
             </div>
-            
-            <div>
-                <label for="{{ form.news_type.id_for_label }}">News Type: </label>
-                {{ form.news_type }}
+            <div class="col-6">
+                <p class = "lead">Korean</p>
             </div>
-            
         </div>
         <div class="row">
-            <div class="col">
-                <p>English</p>
-                <div class="form-group">
-                    {{ form.title_1_en }}
-                    {{ form.content_1_en }}
-                </div>
-                
-                <div class="form-group">
-                    {{ form.title_2_en }}
-                    {{ form.content_2_en }}
-                    <!-- <input class="form-control" id="second-en" name="second-en" type="text" placeholder="Second Article" />              
-                    <textarea class="form-control" cols="40" id="second-en" name="second-en" rows="10"></textarea> -->
-                </div>
-                
-                <div class="form-group">
-                    {{ form.title_3_en }}
-                    {{ form.content_3_en }}
-                    <!-- <input class="form-control" id="third-en" name="third-en" type="text" placeholder="Third Article" />                   
-                    <textarea class="form-control" cols="40" id="third-en" name="third-en" rows="10"></textarea> -->
-                </div>
+            <div class="col-6">
+                {{ form.title_1_en|as_crispy_field }}
+                {{ form.content_1_en|as_crispy_field }}
             </div>
-            <div class="col">
-                <p>Korean</p>
-                <div class="form-group">
-                    {{ form.title_1_kr }}
-                    {{ form.content_1_kr }}
-                    <!-- <input class="form-control" id="first-kr" name="first-kr" type="text" placeholder="First Article" />                   
-                    <textarea class="form-control" cols="40" id="first" name="first" rows="10"></textarea> -->
-                </div>
-                
-                <div class="form-group">
-                    {{ form.title_2_kr }}
-                    {{ form.content_2_kr }}
-                    <!-- <input class="form-control" id="second-kr" name="second-kr" type="text" placeholder="Second Article" />              
-                    <textarea class="form-control" cols="40" id="second" name="second" rows="10"></textarea> -->
-                </div>
-                
-                <div class="form-group">
-                    {{ form.title_3_kr }}
-                    {{ form.content_3_kr }}
-                    <!-- <input class="form-control" id="third-kr" name="third-kr" type="text" placeholder="Third Article" />                   
-                    <textarea class="form-control" cols="40" id="third-kr" name="third-kr" rows="10"></textarea> -->
-                </div>
+            <div class="col-6">
+                {{ form.title_1_kr|as_crispy_field }}
+                {{ form.content_1_kr|as_crispy_field }}
             </div>
         </div>
-        <div>
-            <button class="btn btn-dark" name="submit" type="submit">
-                Submit
-            </button>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                {{ form.title_2_en|as_crispy_field }}
+                {{ form.content_2_en|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.title_2_kr|as_crispy_field }}
+                {{ form.content_2_kr|as_crispy_field }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                {{ form.title_3_en|as_crispy_field }}
+                {{ form.content_3_en|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.title_3_kr|as_crispy_field }}
+                {{ form.content_3_kr|as_crispy_field }}
+            </div>
+        </div>
+        <hr>
+    
+        <div class = "row align-items-center justify-content-center">
+            <button type="submit" class="btn btn-lg btn-dark ">Save!</button>
         </div>
     </form>
     

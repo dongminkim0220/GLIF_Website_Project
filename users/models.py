@@ -17,19 +17,6 @@ class CustomUser(AbstractUser):
 # Glifer Model
 ## Setup
 
-glif_OB = 'OB'
-glif_1st = '1기'
-glif_2nd = '2기'
-glif_3rd = '3기'
-glif_4th = '4기'
-nth_CHOICES = (
-    (glif_OB, 'OB'),
-    (glif_1st, '1기'),
-    (glif_2nd, '2기'),
-    (glif_3rd, '3기'),
-    (glif_4th, '4기'),
-)
-
 class Nth(models.Model):
     nth = models.CharField(max_length = 10)
 
