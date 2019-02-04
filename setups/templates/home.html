@@ -13,9 +13,14 @@
 
 <header class="masthead">
     <div class = "main-contents-top">
-        <video width = "100%" autoplay loop poster="../static/setups/images/backup.jpg" id="bgvid">
-            <source src="../static/setups/video/main.mp4" type="video/mp4">
-        </video>
+        {% if request.user_agent.is_mobile %}
+            <img src="../static/setups/images/mobile-main.jpg" alt="" srcset="">
+        {% else %}
+            <video width = "100%" autoplay loop poster="../static/setups/images/backup.jpg" id="bgvid">
+                <source src="../static/setups/video/main.mp4" type="video/mp4">
+            </video>
+        {% endif %}
+        
     </div>
     <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
@@ -26,11 +31,11 @@
   
 
 <section>
-    <div class="container">
+    <div class="container mainpage-item">
         <div class="row align-items-center">
             <div class="col-lg-6 order-lg-2">
             <div class="p-5">
-                <img class="img-fluid rounded-circle" src="../static/setups/images/global.jpg" alt="">
+                <img class="img-fluid" src="../static/setups/images/global.jpg" alt="">
             </div>
             </div>
             <div class="col-lg-6 order-lg-1">
@@ -44,11 +49,11 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container mainpage-item">
         <div class="row align-items-center">
         <div class="col-lg-6">
             <div class="p-5">
-            <img class="img-fluid rounded-circle" src="../static/setups/images/leaders.jpg" alt="">
+            <img class="img-fluid" src="../static/setups/images/leaders.jpg" alt="">
             </div>
         </div>
         <div class="col-lg-6">
@@ -62,11 +67,11 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container mainpage-item">
         <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
             <div class="p-5">
-            <img class="img-fluid rounded-circle" src="../static/setups/images/in.jpg" alt="">
+            <img class="img-fluid" src="../static/setups/images/in.jpg" alt="">
             </div>
         </div>
         <div class="col-lg-6 order-lg-1">
@@ -80,11 +85,11 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container mainpage-item">
         <div class="row align-items-center">
         <div class="col-lg-6">
             <div class="p-5">
-            <img class="img-fluid rounded-circle" src="../static/setups/images/finance.jpg" alt="">
+            <img class="img-fluid" src="../static/setups/images/finance.jpg" alt="">
             </div>
         </div>
         <div class="col-lg-6">
