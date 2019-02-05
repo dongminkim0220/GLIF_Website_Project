@@ -3,15 +3,43 @@
         width: 100%;
         font-size: 1em;
     }
+    .masthead{
+        display: none;
+    }
+    .col-md-3 {
+        margin-bottom: 4.5rem;
+    }
+
+    div.container.mainpage-item {
+        margin-top : 4.5rem;
+    }
+
 }
 .container {
     margin-top: 100px;
     margin-bottom: 100px;
+    padding : 0 2.0rem;
 }
+
+.container.container-border {
+    margin-top: 10.0em;
+    padding: 20px;
+    border: 1px solid gray;
+    height : 100%;
+}
+
+.container.recruit-container {
+    margin-top: 10rem;
+}
+
 /* button */
 .btn {
     margin-left: 0.1em;
     margin-right: 0.1em;
+}
+
+.btn.btn-download {
+    padding: 2px 4px;
 }
 
 /* grid system - side bar with table */
@@ -33,7 +61,12 @@ div.col-md-8.col-sm-8.col-xs-12 {
 
 
 /* pagination */
+.pagination.justify-content-center>li.active>a {
+    background: #d6d3e2;
+    color: #fff;
+  }
 
-.page-item.active {
-    background-color: gold;
+/* breadcrumb */
+.breadcrumb>li.breadcrumb-item>a {
+    color : black
 }
