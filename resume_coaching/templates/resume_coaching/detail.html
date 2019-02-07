@@ -3,8 +3,13 @@
 {% block body %}
     <div class = "container container-border">
         <h1>{{post.title}}</h1>
+        <div class = "text-right">
+            <span>Written at {{ post.written_date }}, by {{post.writer.name_en}}</span>
+            <hr>
+        </div>
         <div>
             {% if post.attached_file != '' %}
+                <hr>
                 <span>첨부파일: {{post.attached_file}}</span>
                 <button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/{{post.pk}}/download'">Download</button>
             {% endif %}
