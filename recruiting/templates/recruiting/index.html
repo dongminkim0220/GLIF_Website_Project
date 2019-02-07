@@ -12,7 +12,7 @@
         {% if user.is_authenticated and user.is_applicant %}
             <a class="btn btn-dark btn-lg" href="/accounts/applicant/userinfo/{{ user.applicant.pk }}">Go To Application Form</a>
         {% else %}
-            <a class="btn btn-dark btn-lg" href="#" onclick = "alertNoPermission()">Go To Application Form</a>
+            <a class="btn btn-dark btn-lg" href="#" onclick = "alertNoPermissionAsApplicant()">Go To Application Form</a>
         {% endif %}
     </div>
 </div>
