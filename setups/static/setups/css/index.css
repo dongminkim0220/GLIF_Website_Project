@@ -70,3 +70,7 @@ div.col-md-8.col-sm-8.col-xs-12 {
 .breadcrumb>li.breadcrumb-item>a {
     color : black
 }
+
+#div_id_attached_file.form-group > div > a{
+    color: black;
+}
