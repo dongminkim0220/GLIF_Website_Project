@@ -35,7 +35,7 @@ class Glifer(models.Model):
     work_at = models.CharField(max_length = 250, blank = True)
     self_intro = models.TextField(max_length = 1000)
     profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/', default = '/users/man-user.png')
-    nth = models.ForeignKey(Nth, on_delete = models.CASCADE, primary_key = False, null = True, blank = True)
+    nth = models.ForeignKey(Nth, on_delete = models.CASCADE, primary_key = False, null = True)
 
     def __str__(self):
         return str(self.nth.nth) + " " + self.name_kr
