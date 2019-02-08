@@ -13,4 +13,4 @@ class GliferList(ListView):
     def get_queryset(self):
         qs = super(GliferList, self).get_queryset()
         nth_id = Nth.objects.filter(nth = self.kwargs['nth'])[0].id
-        return qs.filter(nth_id__exact = nth_id )
+        return qs.filter(nth_id__exact = nth_id ).order_by('-priority')

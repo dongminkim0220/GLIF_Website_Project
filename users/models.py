@@ -34,8 +34,11 @@ class Glifer(models.Model):
     phonenumber = models.CharField(max_length = 250)
     work_at = models.CharField(max_length = 250, blank = True)
     self_intro = models.TextField(max_length = 1000)
+    self_intro_add = models.TextField(max_length = 1000, blank = True) 
     profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/', default = '/users/man-user.png')
-    nth = models.ForeignKey(Nth, on_delete = models.CASCADE, default = "4기", primary_key = False, null = True)
+    nth = models.ForeignKey(Nth, on_delete = models.CASCADE, primary_key = False, null = True)
+    priority = models.IntegerField(default = 1)
+
 
     def __str__(self):
         return str(self.nth) + " " + self.name_kr
