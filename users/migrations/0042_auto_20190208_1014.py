@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='glifer',
             name='nth',
-            field=models.ForeignKey(default='4기', null=True, on_delete=django.db.models.deletion.CASCADE, to='users.Nth'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='users.Nth'),
         ),
     ]
