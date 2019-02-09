@@ -38,16 +38,27 @@
                     <li class="media">
                         <img src="{{ glifer.profile_img.url }}" class="align-self-start mr-3 profile-img" alt="...">
                         <div class="media-body">
-                        <h5 class="mt-0 mb-1">{{ glifer.name_kr }} / {{ glifer.name_en }} 
-                            {% if glifer.work_at != '' %}
-                                / {{ glifer.work_at }}</h5>
-                            {% else %}
-                                </h5>
-                            {% endif %}
-                        {{ glifer.self_intro }}
+                            <h5 class="mt-0 mb-1">{{ glifer.name_kr }} / {{ glifer.name_en }} 
+                                {% if glifer.work_at != '' %}
+                                    / {{ glifer.work_at }}</h5>
+                                {% else %}
+                                    </h5>
+                                {% endif %}
+                            {{ glifer.self_intro }}
+                            
                         </div>
                     </li>
+                    <div class = "text-right">
+                        <a style = "color: gold;" onclick="seeMore('{{glifer.user.id}}_plus')">See More...</a>
+                    </div>
                     <hr>
+                    <li class = "media" style = "display: none;", id = "{{glifer.user.id}}_plus">
+                        <div class = "media-body">
+                            This is my DIV element.
+                        </div>
+                        <hr>
+                    </li>
+                    
                     {% endif %}
                 {% endfor %}
             </ul>
