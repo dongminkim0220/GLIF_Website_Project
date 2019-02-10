@@ -2,7 +2,12 @@
 
 {% block css %}
 {% load static %}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'users/css/edit.css' %}">
+<script src="{% static 'users/js/glifer.js' %}"></script>
 {% endblock %}
 {% block body %}
     <div class = "container">
@@ -39,7 +44,16 @@
             <hr>
             {{ form.self_intro|as_crispy_field }}
             {{ form.self_intro_add|as_crispy_field }}
+            
 
+            <!-- 이부분 !!! -->
+            <!-- {{ form.career }}
+            <div class="input-group-append">
+                <button id="b0" class="btn btn-success add-more" type="button">+</button>
+            </div>
+            -->
+
+            
             <br>
                 <p><i class="far fa-sticky-note"></i> Notice</p>
             <hr>
@@ -49,5 +63,10 @@
             </div>
         </form>
     </div>
+
+{% block js %}
+{% load static %}
+
+{% endblock %}
     
 {% endblock %}

@@ -23,6 +23,12 @@ class Nth(models.Model):
     def __str__(self):
         return self.nth
 
+class Career(models.Model):
+    item = models.CharField(max_length = 10)
+
+    def __str__(self):
+        return self.item
+
 ## Model
 class Glifer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete = models.CASCADE, primary_key = True)
@@ -38,6 +44,7 @@ class Glifer(models.Model):
     profile_img = models.FileField(upload_to = 'profiles/%Y/%m/%d/', default = '/users/man-user.png')
     nth = models.ForeignKey(Nth, on_delete = models.CASCADE, primary_key = False, null = True)
     priority = models.IntegerField(default = 1)
+    career = models.ManyToManyField(Career, blank = True)
 
 
     def __str__(self):
