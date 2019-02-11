@@ -8,6 +8,7 @@
 /* general */
 .navbar-dark .navbar-nav .nav-link {
     color: white;
+    font-weight: bold;
 }
 
 /* logo */
