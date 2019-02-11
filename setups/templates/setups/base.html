@@ -51,7 +51,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                    AboutUs
+                    About GLIF
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/aboutus/introduction">Introduction</a>
@@ -59,7 +59,7 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/announcement">Announcements <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/notice">Notice<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
@@ -80,7 +80,7 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                    GLIFERS-Only
+                    GLIFERS
                 </a>
                 {% if request.user.glifer.is_authorized %}
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -153,7 +153,12 @@
             </button>
             </div>
             <div class="modal-body">
-                <p> E-mail: dongmin.kim.0220@gmail.com </p>
+                <p>
+                    <i class="far fa-envelope"></i> recruit.glif@gmail.com 
+                </p>
+                <p>
+                    <i class="fas fa-mobile-alt"></i> 010-2732-7793 (4기 회장 김동민)
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
