@@ -12,7 +12,7 @@
             {% if post.attached_file != '' %}
                 <hr>
                 <span>첨부파일: {{post.attached_file}}</span>
-                <button type="button" class="btn btn-outline-dark" onclick="location.href = '/announcement/{{post.pk}}/download'">Download</button>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href = '/notice/{{post.pk}}/download'">Download</button>
                 <hr>
             {% endif %}
         </div>
