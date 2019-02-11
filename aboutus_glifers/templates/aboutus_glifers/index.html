@@ -45,20 +45,9 @@
                                     </h5>
                                 {% endif %}
                             {{ glifer.self_intro }}
-                            
                         </div>
                     </li>
-                    <div class = "text-right">
-                        <a style = "color: gold;" onclick="seeMore('{{glifer.user.id}}_plus')">See More...</a>
-                    </div>
                     <hr>
-                    <li class = "media" style = "display: none;", id = "{{glifer.user.id}}_plus">
-                        <div class = "media-body">
-                            <h1>Profile of {{glifer.name_en}}</h1>
-                        </div>
-                        <hr>
-                    </li>
-                    
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -66,12 +55,6 @@
     </div>
 </div>
 
-{% block js %}
-
-{% load staticfiles %}
-<script src="{% static 'aboutus_glifers/js/index.js' %}"></script>
-
-{% endblock %}
 
 {% endblock %}
 
