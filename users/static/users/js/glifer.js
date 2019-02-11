@@ -10,16 +10,16 @@ $(document).ready(function(){
         count++;
         document.getElementById('id_form-TOTAL_FORMS').setAttribute("value", count);
         
-        var newIn = '<input autocomplete="off" class="form-control" id="id_form-' + next +'-career'+ '" name="form-' + next +'-career'+ '" type="text"><div></div>';
+        var newIn = '<input autocomplete="off" placeholder = "enter here" class="form-control" id="id_form-' + next +'-career'+ '" name="form-' + next +'-career'+ '" type="text"><div></div>';
         var newInput = $(newIn);
 
-        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button>';
+        var removeBtn = '<a href = "#" style = "color:black;" id="remove' + (next - 1) + '" class="remove-me" >Delete This</button>';
         var removeButton = $(removeBtn);
 
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
 
-        $('.remove-me').click(function(e){
+        removeButton.click(function(e){
             e.preventDefault();
             var fieldNum = this.id.charAt(this.id.length-1);
             var fieldID = "#id_form-" + fieldNum + '-career';
@@ -27,7 +27,7 @@ $(document).ready(function(){
             $(fieldID).remove();
         });
 
-        $('.remove-me').click(function(e){
+        removeButton.click(function(e){
             count--;
             document.getElementById('id_form-TOTAL_FORMS').setAttribute("value", count);
         });
