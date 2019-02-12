@@ -38,13 +38,30 @@
                     <li class="media">
                         <img src="{{ glifer.profile_img.url }}" class="align-self-start mr-3 profile-img" alt="...">
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">{{ glifer.name_kr }} / {{ glifer.name_en }} 
+                            <h5 class="mt-0 mb-1">{{ glifer.name_kr }} | {{ glifer.name_en }} 
                                 {% if glifer.work_at != '' %}
-                                    / {{ glifer.work_at }}</h5>
+                                    | {{ glifer.work_at }}</h5>
                                 {% else %}
                                     </h5>
                                 {% endif %}
                             {{ glifer.self_intro }}
+                            <br>
+                            <br>
+                            <div>
+                                {% if glifer.career_cur_detail != '' %}
+                                    現) {{ glifer.career_cur_detail }}
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if glifer.career_prev_1_detail != '' %}
+                                    前) {{ glifer.career_prev_1_detail }}
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if glifer.career_prev_2_detail != '' %}
+                                    前) {{ glifer.career_prev_2_detail }}
+                                {% endif %}
+                            </div>
                         </div>
                     </li>
                     <hr>

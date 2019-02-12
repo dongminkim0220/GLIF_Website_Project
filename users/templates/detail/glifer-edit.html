@@ -44,8 +44,15 @@
             <hr>
             {{ form.self_intro|as_crispy_field }}
             
+            <div>
+                Career Path
+            </div>
 
+            {{ form.career_cur_detail| as_crispy_field}}
             
+            {{ form.career_prev_1_detail| as_crispy_field}}
+            {{ form.career_prev_2_detail| as_crispy_field}}
+
             <br>
                 <p><i class="far fa-sticky-note"></i> Notice</p>
             <hr>

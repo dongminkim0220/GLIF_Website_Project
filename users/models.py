@@ -38,6 +38,10 @@ class Glifer(models.Model):
     nth = models.ForeignKey(Nth, on_delete = models.CASCADE, primary_key = False, null = True)
     priority = models.IntegerField(default = 1)
 
+    career_cur_detail = models.CharField(max_length = 250, blank = True)
+    career_prev_1_detail = models.CharField(max_length = 250, blank = True)
+    career_prev_2_detail = models.CharField(max_length = 250, blank = True)
+
 
     def __str__(self):
         return str(self.nth) + " " + self.name_kr

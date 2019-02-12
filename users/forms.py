@@ -52,6 +52,9 @@ class GliferEditForm(forms.ModelForm):
             "profile_img": "프로필 사진 업로드(업로드 하지 않을 경우, 기본 사진으로 설정됩니다.)",
             "self_intro": "자기소개(홈페이지 메인화면에 업로드 됩니다.)",
             "self_intro_add": "추가적인 사항을 적어주세요.(경력 등)",
+            "career_cur_detail": "현재 근무하고 있는 곳을 적어주세요. 자격증, 직급등 추가사항이 있다면 괄호 안에 적어주세요. (ex. 주식회사 글리프 근무(재무과장, CFA))",
+            "career_prev_1_detail": "과거 근무지, 혹은 인턴경험등을 적어주세요.(1)",
+            "career_prev_2_detail": "과거 근무지, 혹은 인턴경험등을 적어주세요.(2)",
         }
 
         
