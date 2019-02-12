@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import formset_factory
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Glifer, Applicant, Subject, Career
+from .models import CustomUser, Glifer, Applicant, Subject
 
 from django.db import transaction
 
@@ -34,20 +34,12 @@ class ApplicantSignUpForm(UserCreationForm):
         applicant = Applicant.objects.create(user=user)
         return user
 
-class CareerForm(forms.Form):
-    career = forms.CharField(label = "", widget = forms.TextInput(attrs = {
-        'class': 'form-control',
-        'placeholder': 'enter here'
-    }))
-
-CareerFormSet = formset_factory(CareerForm)
-
 
 class GliferEditForm(forms.ModelForm):
     class Meta:
         model = Glifer
         fields = '__all__'
-        exclude = ['user', 'is_authorized', 'priority','career']
+        exclude = ['user', 'is_authorized', 'priority']
 
         labels = {
             "name_kr" : "한글 성명",
@@ -61,7 +53,6 @@ class GliferEditForm(forms.ModelForm):
             "self_intro": "자기소개(홈페이지 메인화면에 업로드 됩니다.)",
             "self_intro_add": "추가적인 사항을 적어주세요.(경력 등)",
         }
-    career = CareerFormSet()
 
         
 
