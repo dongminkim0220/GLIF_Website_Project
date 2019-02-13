@@ -1,0 +1,119 @@
+{% extends 'setups/base.html' %}
+
+{% block og %}
+<meta property="og:title" content= "GLIF Recruiting"/>
+<meta property="og:description" content= "{{applicant.user.username}}"/>
+<meta property="og:image" content= "https://images.pexels.com/photos/867092/pexels-photo-867092.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+{% endblock %}
+
+{% block body %}
+
+<div class = "container">
+    {% load crispy_forms_tags %}
+    <p class = "lead">Applicant Information of 
+        <strong>{{ applicant.user.username }}</strong></p>
+    <hr>
+        <br>
+        <p><i class="far fa-user"></i> Personal Information</p>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <div>한글성명: {{ applicant.name_kr }}</div>
+                <div>생일: {{ applicant.birthdate }}</div>
+                <div>학년: {{ applicant.schyr }}</div>
+            </div>
+            <div class="col-6">
+                <div>학번: {{ applicant.stu_id }} </div>
+                <div>전화번호: {{ applicant.phonenumber }} </div>
+                <div>졸업 예정일: {{ applicant.grad }}</div>
+            </div>
+        </div>
+        
+        <br>
+
+        <p><i class="fas fa-globe-europe"></i> Extracurricular Activities/Others</p>
+        <hr>
+        <div>
+            <p>Q. 인턴경험, 학회, 동아리, 수상경력등의 사항을 적어주세요.</p>
+            <hr>
+            <div>
+                A. {{ applicant.extra }}
+            </div> 
+        </div>
+        <hr>
+        <hr>
+        <div>
+            <p> Q. CPA, CFA, 국제FRM등 다른 특별한 시험을 준비하고 계십니까? 준비하고 계신다면 어떤 시험을 준비하고 계십니까?</p>
+            <hr>
+            <div>
+                A. {{ applicant.testprep }}
+            </div> 
+        </div>
+        <hr>
+        <hr>
+        <div>
+            <p>Q. 최소 2학기 이상 연속으로 활동 하셔야 합니다. 그렇지 않으면 정회원 등록이 불가능합니다. 가능하십니까?</p>
+            <hr>
+            <div>
+                A.{{ applicant.willyou }}
+            </div> 
+        </div>
+        <hr>
+        <hr>
+        <div>
+            <p>
+                Q. 군 미필자인 경우, 군대는 언제 가실 계획이십니까?
+            </p>
+            <hr>
+            <div>
+                A. {{ applicant.millitary }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <p>수강한 과목</p>
+                <hr>
+                {% for course in applicant.havetaken_courses.all %}
+                    <p>{{course}}</p>
+                {% endfor %}
+            </div>
+            <div class="col-6">
+                <p>이번학기 수강 과목</p>
+                <hr>
+                {% for course in applicant.willtake_courses.all %}
+                    <p>{{course}}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <br>
+        <p><i class="fas fa-pencil-alt"></i> Essay Questions</p>
+        <hr>
+        <div>
+            <p>
+                Q1. 글리프에 지원하게 된 동기를 서술해주세요. 학회에 들어온다면, 학회를 통해 얻고자 하는 것은 무엇인지 서술해 주세요. 분량제한은 없습니다.
+            </p>
+            <div>
+                A: {{ applicant.glifmotive }}
+            </div>
+        </div>
+
+        <hr>
+
+        <div>
+            <p>
+                Q2. 졸업 후에 어떤 분야에서 일을 하고 싶은지, 혹은 어떤 특정 금융업에 관심이 있는지 설명해주세요. 분량제한은 없습니다.
+            </p>
+            <div>
+                A: {{ applicant.futureplan }}
+            </div>
+        </div>
+        
+        
+        
+        <br>
+</div>
+
+    
+{% endblock %}

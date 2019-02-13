@@ -30,6 +30,10 @@
         {% else %}
             <a class="btn btn-dark btn-lg" href="#" onclick = "alertNoPermissionAsApplicant()">Go To Application Form</a>
         {% endif %}
+
+        {% if user.is_authenticated and user.is_glifer %}
+            <a class="btn btn-dark btn-lg" href="/recruiting/list" >See Application Status</a>
+        {% endif %}
     </div>
 </div>
 

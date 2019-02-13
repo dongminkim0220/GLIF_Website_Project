@@ -6,6 +6,13 @@
         <p class = "lead">Applicant Information of 
             <strong>{{user.username}}</strong></p>
         <hr>
+
+        <p>
+            See Your Saved Application Form At: 
+            <a style = "color:black" href="/recruiting/{{user.pk}}">
+                {{ user.username }}'s Application Form
+            </a>
+        </p>
         <form action="" method="post" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
             <br>

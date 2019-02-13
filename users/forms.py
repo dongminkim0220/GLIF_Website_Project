@@ -44,7 +44,7 @@ class GliferEditForm(forms.ModelForm):
         labels = {
             "name_kr" : "한글 성명",
             "name_en" : "영문 성명",
-            "birthdate" : "생일",
+            "birthdate" : "생일 (YYYY-MM-DD)",
             "phonenumber": "전화번호",
             "nth": "기수",
             "work_at": "직장 혹은 인턴(재학생의 경우, 적지 않으셔도 무방합니다.)",
@@ -80,11 +80,11 @@ class ApplicantEditForm(forms.ModelForm):
 
         labels =  {
             "name_kr" : "한글 성명",
-            "birthdate" : "생일",
+            "birthdate" : "생일 (YYYY-MM-DD)",
             "schyr": "학년",
             "stu_id": "학번",
             "phonenumber": "전화번호",
-            "grad": "졸업 예정일",
+            "grad": "졸업 예정일 (YYYY-MM-DD)",
             "extra": "인턴경험, 학회, 동아리, 수상경력등의 사항을 적어주세요.",
             "testprep": "CPA, CFA, 국제FRM등 다른 특별한 시험을 준비하고 계십니까? 준비하고 계신다면 어떤 시험을 준비하고 계십니까?",
             "willyou": "최소 2학기 이상 연속으로 활동 하셔야 합니다. 그렇지 않으면 정회원 등록이 불가능합니다. 가능하십니까?",

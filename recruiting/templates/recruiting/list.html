@@ -1,0 +1,39 @@
+{% extends 'setups/base.html' %}
+
+{% block og %}
+<meta property="og:title" content= "GLIF"/>
+<meta property="og:description" content= "Applicant List"/>
+<meta property="og:image" content= "https://images.pexels.com/photos/867092/pexels-photo-867092.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+{% endblock %}
+
+{% block body %}
+
+<div class = "container">
+    <div class = "row">
+        <!-- title -->
+        <p class = "lead">Applicant List</p>
+        
+        <!-- tables -->
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">제목</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for applicant in applicants %}
+                    <tr>
+                        <td>
+                            <a style = "color:black" href="/recruiting/{{applicant.pk}}">
+                                {{ applicant.user.username }}'s Application Form
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+{% endblock %}
