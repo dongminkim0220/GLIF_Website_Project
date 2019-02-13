@@ -37,7 +37,7 @@
             <p>Q. 인턴경험, 학회, 동아리, 수상경력등의 사항을 적어주세요.</p>
             <hr>
             <div>
-                A. {{ applicant.extra }}
+                A. {{ applicant.extra|linebreaks }}
             </div> 
         </div>
         <hr>
@@ -46,7 +46,7 @@
             <p> Q. CPA, CFA, 국제FRM등 다른 특별한 시험을 준비하고 계십니까? 준비하고 계신다면 어떤 시험을 준비하고 계십니까?</p>
             <hr>
             <div>
-                A. {{ applicant.testprep }}
+                A. {{ applicant.testprep|linebreaks }}
             </div> 
         </div>
         <hr>
@@ -95,7 +95,7 @@
                 Q1. 글리프에 지원하게 된 동기를 서술해주세요. 학회에 들어온다면, 학회를 통해 얻고자 하는 것은 무엇인지 서술해 주세요. 분량제한은 없습니다.
             </p>
             <div>
-                A: {{ applicant.glifmotive }}
+                A: {{ applicant.glifmotive|linebreaks }}
             </div>
         </div>
 
@@ -106,7 +106,7 @@
                 Q2. 졸업 후에 어떤 분야에서 일을 하고 싶은지, 혹은 어떤 특정 금융업에 관심이 있는지 설명해주세요. 분량제한은 없습니다.
             </p>
             <div>
-                A: {{ applicant.futureplan }}
+                A: {{ applicant.futureplan|linebreaks }}
             </div>
         </div>
         
