@@ -25,15 +25,21 @@
             </p>
 
         </div>
-        {% if user.is_authenticated and user.is_applicant %}
-            <a class="btn btn-dark btn-lg" href="/accounts/applicant/userinfo/{{ user.applicant.pk }}">Go To Application Form</a>
-        {% else %}
-            <a class="btn btn-dark btn-lg" href="#" onclick = "alertNoPermissionAsApplicant()">Go To Application Form</a>
-        {% endif %}
+        <div style = "margin-bottom: 1.0rem;">
+            {% if user.is_authenticated and user.is_applicant %}
+                <a class="btn btn-dark btn-lg" href="/accounts/applicant/userinfo/{{ user.applicant.pk }}">Go To Application Form</a>
+            {% else %}
+                <a class="btn btn-dark btn-lg" href="#" onclick = "alertNoPermissionAsApplicant()">Go To Application Form</a>
+            {% endif %}
+        </div>
+        
+        <div>
+            {% if user.is_authenticated and user.is_glifer %}
+                <a class="btn btn-dark btn-lg" href="/recruiting/list" >See Application Status</a>
+            {% endif %}
+        </div>
 
-        {% if user.is_authenticated and user.is_glifer %}
-            <a class="btn btn-dark btn-lg" href="/recruiting/list" >See Application Status</a>
-        {% endif %}
+        
     </div>
 </div>
 
