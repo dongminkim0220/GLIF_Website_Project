@@ -39,7 +39,7 @@ class GliferEditForm(forms.ModelForm):
     class Meta:
         model = Glifer
         fields = '__all__'
-        exclude = ['user', 'is_authorized', 'priority']
+        exclude = ['user', 'is_authorized', 'priority', 'is_mentor']
 
         labels = {
             "name_kr" : "한글 성명",
@@ -48,7 +48,6 @@ class GliferEditForm(forms.ModelForm):
             "phonenumber": "전화번호",
             "nth": "기수",
             "work_at": "직장 혹은 인턴(재학생의 경우, 적지 않으셔도 무방합니다.)",
-            "is_mentor": "멘토입니다.",
             "profile_img": "프로필 사진 업로드(업로드 하지 않을 경우, 기본 사진으로 설정됩니다.)",
             "self_intro": "자기소개(홈페이지 메인화면에 업로드 됩니다.)",
             "self_intro_add": "추가적인 사항을 적어주세요.(경력 등)",
