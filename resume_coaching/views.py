@@ -1,7 +1,7 @@
 # Basic View
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Comment
 from django.urls import reverse_lazy
 
 # Attachment Response
@@ -80,20 +80,40 @@ class PostDetailView(UserPassesTestMixin, DetailView):
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    print(pk)
-    print(post)
-
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.writer = Glifer.objects.get(user=request.user)
             comment.post = post
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('resume_coaching-detail', pk=post.pk)
     else:
         form = CommentForm()
     return render(request, 'resume_coaching/add_comment_to_post.html', {'form': form})
 
+def edit_comment_to_post(request, pk, pk_comment):
+    comment = Comment.objects.get(pk=pk_comment)
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST, instance= comment)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.writer = Glifer.objects.get(user=request.user)
+            comment.post = post
+            comment.save()
+            return redirect('resume_coaching-detail', pk=post.pk)
+    else:
+        form = CommentForm(instance = comment)
+    return render(request, 'resume_coaching/add_comment_to_post.html', {'form': form})
+
+def delete_comment_to_post(request, pk, pk_comment):
+    comment = Comment.objects.get(pk=pk_comment)
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        comment.delete()
+        return redirect('resume_coaching-detail', pk=post.pk)
+    return render(request, 'resume_coaching/delete_comment_to_post.html')
 
 @method_decorator([login_required, glifer_required], name='dispatch')
 class PostCreateView(CreateView):

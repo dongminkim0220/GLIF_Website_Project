@@ -1,9 +1,18 @@
-{% extends 'blog/base.html' %}
 
-{% block content %}
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
+{% extends 'setups/base.html' %}
+
+{% block body %}
+    <div class = "container">
+        <h1>Leave Comment</h1>
+        {% load crispy_forms_tags %}
+        <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            {{ form.text|as_crispy_field }}
+            
+            <div class = "row align-items-center justify-content-center">
+                <button type="submit" class="btn btn-lg btn-dark ">Send!</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
