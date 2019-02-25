@@ -47,12 +47,29 @@
                                 <img src="{{ glifer.profile_img.url }}" class="mr-3 profile-img" alt="...">
                             </div>
                             <div class="media-body col-md-9 col-xs-12 col-lg-10">
-                                <h5 class="mt-0 mb-1">{{ glifer.name_kr }} {{ glifer.name_en }} 
+                                <h5 class="mt-0 mb-1">{{ glifer.name_kr }} {{ glifer.name_en }}
+                                     
                                     {% if glifer.work_at != '' %}
-                                        | {{ glifer.work_at }}</h5>
+                                        | {{ glifer.work_at }}
+                                        
+                                        {% if glifer.is_mentor %}
+                                            <span style = "font-size: 10px; color: gold;">
+                                                *MENTOR
+                                            </span>
+                                        {% endif %}
+                                        </h5>
+
                                     {% else %}
+
+                                        {% if glifer.is_mentor %}
+                                            <span style = "font-size: 10px; color: gold;">
+                                                *MENTOR
+                                            </span>
+                                        {% endif %}
+
                                         </h5>
                                     {% endif %}
+                                    
                                 {{ glifer.self_intro |linebreaks }}
                                 <br>
                                 <br>
