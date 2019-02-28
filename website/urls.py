@@ -6,6 +6,12 @@ from django.conf.urls.static import static
 from users.views import glifers, applicants
 from django.views.static import serve
 
+# from django.conf.urls import url
+from django.views.decorators.cache import never_cache
+from django.contrib.auth.decorators import login_required
+from ckeditor_uploader import views
+
+
 urlpatterns = [
     # Home : Main View 
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -35,11 +41,15 @@ urlpatterns = [
 
     # ckeditor
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    re_path(r'^ckeditor/upload/', login_required(views.upload), name='ckeditor_upload'),
+    re_path(r'^ckeditor/browse/', never_cache(login_required(views.browse)), name='ckeditor_browse'),
 
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     
 ]
+
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
