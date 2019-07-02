@@ -11,17 +11,17 @@
 <!-- intro page -->
 <div class = "container recruit-container">
     <div class="jumbotron text-center">
-        <h1 class="display-4">2019 상반기 Recruiting</h1>
-        <p class="lead">성균관대학교 글로벌경제학과 금융학회 GLIF가 신입부원을 모집합니다.</p>
+        <h1 class="display-4">{{ recruiting.title }}</h1>
+        <p class="lead">{{ recruiting.content }}</p>
         <hr class="my-4">
         <div>
             <h2 class = "lead">Requirements</h2>
-            <p>2학기 이상 수료한 재학생 및 수료생으로, 2학기 이상 성실하게 연속활동이 가능한 글경제인</p>
+            <p>{{ recruiting.requirements }}</p>
             <h2 class = "lead">How to apply</h2>
             <p>
-                <li style = "list-style-type: none;"><i class="fas fa-check"></i> 지원기한: 3월 8일(금) 자정</li>
-                <li style = "list-style-type: none;"><i class="fas fa-check"></i> 개별면접: 3월 9일(토) 실시, 시간은 개별통보</li>
-                <li style = "list-style-type: none;"><i class="fas fa-check"></i> 사전 설명회: 3월 7일(목)</li>
+                <li style = "list-style-type: none;"><i class="fas fa-check"></i> 지원기한: {{ recruiting.deadline_date }}</li>
+                <li style = "list-style-type: none;"><i class="fas fa-check"></i> 개별면접: {{ recruiting.interview_date }}</li>
+                <li style = "list-style-type: none;"><i class="fas fa-check"></i> 사전 설명회: {{ recruiting.opensession_date }}</li>
             </p>
 
         </div>
