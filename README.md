@@ -3,9 +3,6 @@ Website for academic association GLIF of Sungkyunkwan Univ. at Seoul, South Kore
 
 # Main Framework
 Using Python Django Framework, 2018-2019 On Working.
-
-# Site Available At
-http://www.skkuglif.com 
-
+ 
 # Dependency
 See https://github.com/dongminkim0220/GLIF_Website_Project/blob/master/requirements.txt
