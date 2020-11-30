@@ -16,7 +16,7 @@ docutils==0.14
 freeze==1.0.10
 html5lib==1.0.1
 jmespath==0.9.3
-Pillow==5.4.1
+Pillow==7.1.0
 pycparser==2.19
 PyPDF2==1.26.0
 Pyphen==0.9.5
